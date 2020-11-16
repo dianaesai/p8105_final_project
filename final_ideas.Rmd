@@ -1,0 +1,39 @@
+---
+title: "Final Ideas"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# The motivation for this project
+* Our intended motivation is to create a website to communicate information on the COVID-19 epidemic. More specifically, we would like to focus on excess deaths.
+
+# Relationships that we can explore
+* excess death vs. prevention measures taken
+  + whether a state implemented mask mandate
+  + whether a state implemented travel restrictions
+  + whether a state implemented shutdowns
+  + whether a state implemented curfews
+* excess death vs. demographic numbers
+  + excess death vs ethnicities
+  + excess death vs age groups
+  + excess death vs population densities
+* excess death vs. public attitudes
+  + trump share vs biden share
+  + vote by mail vs in person voting
+  + polling differences 
+
+# Potential conclusions
+* what are the best public health measures that can be taken that balances prevention of COVID-19 with the risk of triggering other public health crisis (domestic violence/drug overdose)
+  + what kind of measures should be used for each groups
+* How does public opinion/partisan identity contribute/prevent successful measures of containing the COVID-19.
+* beware of the time effect on the excess death rate (recent death/hospitalization will be lower than the beginning of the pandemic as doctors have more familiarity with treatment of the disease)
+
+# The anticipated data sources
+* We will be initially using a data source from the CDC. This data source displays information excess deaths associated with COVID-19.
+https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.htm
+
+# The planned analyses / visualizations / coding challenges
+* We hope to create a website that includes a variety of graphs using shiny techniques. 
