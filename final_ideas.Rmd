@@ -1,6 +1,6 @@
 ---
 title: "Final Ideas"
-output: pdf_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = TRUE)
   + vote by mail vs in person voting
   + polling differences 
 
-# Potential conclusions
+# Potential results
 * what are the best public health measures that can be taken that balances prevention of COVID-19 with the risk of triggering other public health crisis (domestic violence/drug overdose)
   + what kind of measures should be used for each groups
 * How does public opinion/partisan identity contribute/prevent successful measures of containing the COVID-19.
@@ -34,6 +34,11 @@ knitr::opts_chunk$set(echo = TRUE)
 # The anticipated data sources
 * We will be initially using a data source from the CDC. This data source displays information excess deaths associated with COVID-19.
 https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.htm
+* https://www.nytimes.com/interactive/2020/11/03/us/elections/results-president.html 2020 election data (maybe we can scrap)
+* https://covidtracking.com/ total COVID cases/hospitalization/deaths tracking by states
+* https://www.census.gov/data/datasets.html census data for state's demographic chracteristics
+
+
 
 # The planned analyses / visualizations / coding challenges
 * We hope to create a website that includes a variety of graphs using shiny techniques. 
