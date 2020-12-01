@@ -1,0 +1,23 @@
+---
+title: "Excess Deaths and COVID-19"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+<img src="images/covid.JPG" style="width:100%">
+
+## Introduction
+
+(information on COVID/ why we decided to study this)
+
+## Final Report
+
+Our [Report](final_report.html) can be found here
+
+## Findings
+(once Alex completes data analyses)
+
+## Screencast
+Our Screencast can be found here

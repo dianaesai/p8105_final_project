@@ -1,0 +1,31 @@
+name: "Covid-19 mand Excess Deaths"
+output_dir: "."
+
+navbar:
+  title: "Home"
+  left:
+    - text: "Analyses"
+      href: dashboard.html
+    - text: "Final Report"
+      href: final_report.html
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/dianaesai/p8105_final_project.git
+    - icon: fa-youtube fa-lg
+      href: https://www.youtube.com/watch?v=oHg5SJYRHA0
+    - text: "Contact Us"
+      menu:
+      - text: "Diana Sanchez"
+        href: mailto:<des2190@cumc.columbia.edu>
+      - text: "Chong Li"
+        href: mailto:<cl4045@cumc.columbia.edu> 
+      - text: "Matthew Angulo"
+        href: mailto:<ma3997@cumc.columbia.edu>
+      - text: "Alexander Melamed"
+        href: mailto:<am5195@cumc.columbia.edu>
+
+output:
+  html_document:
+    theme: journal
+    includes:
+      after_body: footer.html
