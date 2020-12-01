@@ -10,6 +10,9 @@ library(readr)
 library(janitor)
 library(patchwork)
 library(scales)
+library(moderndive)
+library(stats)
+library(sandwich)
 ```
 
 For this project we are using two datasets available from the CDC. 
@@ -153,7 +156,7 @@ panel2 = states %>%
 panel2 + panel1
 ```
 
-Next we explore whether the duration of stay at home orders are associated with excess non-covid related mortality. 
+Next we explore whether the duration of stay at home orders are associated with excess non-covid related mortality. We import and link data on the lengths of each states stay-at-home-orders based on information aggregated from by the National Academy of State Health Policy (https://www.nashp.org/governors-prioritize-health-for-all/). We join these data to our state level data set plot stay-at-home order duratoin vs non-covid-19 excess mortality rates. 
 
 ```{r}
 stay_at_home_orders <- read_csv("data/stay_at_home_orders_final.csv", 
@@ -170,9 +173,14 @@ states %>%
    geom_point(alpha=0.5)+
   geom_smooth(, weight="population")+
  theme(legend.position = "none") +
-  scale_y_continuous(limits=c(0, 100))
+  scale_y_continuous(limits=c(0, 100))+
 
 ```
 
+```{r}
 
+stay_at_home_model <- lm.cluster(excess_not_covid_r ~ length, data = states,cluster=state)
+# Get regression table:
+get_regression_table(stay_at_home_model)
 
+```
