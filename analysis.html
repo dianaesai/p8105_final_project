@@ -329,12 +329,12 @@ $(document).ready(function () {
 
 
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## -- Attaching packages --------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## -- Attaching packages ------------------------------------------------------------------------------------- tidyverse 1.3.0 --</code></pre>
 <pre><code>## v ggplot2 3.3.2     v purrr   0.3.4
 ## v tibble  3.0.3     v dplyr   1.0.2
 ## v tidyr   1.1.2     v stringr 1.4.0
 ## v readr   1.3.1     v forcats 0.5.0</code></pre>
-<pre><code>## -- Conflicts ------------------ tidyverse_conflicts() --
+<pre><code>## -- Conflicts ---------------------------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(lubridate)</code></pre>
@@ -420,18 +420,87 @@ panel3=
    scale_y_continuous(limits=c(-1000, 25000))
 
 panel2 + panel1 + panel3</code></pre>
+<p><img src="analysis_files/figure-html/unnamed-chunk-4-1.png" width="672" /> This code chunk calculates the number of excess deaths, covid deaths, and excess non-covid deaths in the United States from February through October 2020.</p>
+<pre class="r"><code>merged_data %&gt;% 
+  filter(state==&quot;United States&quot; &amp; end_week &lt; as.Date(&quot;2020-11-1&quot;)) %&gt;% 
+  summarise(
+    excess_deaths=sum(excess_higher_estimate),
+    covid_deaths=sum(covid_19_deaths),
+    excess_not_covid=sum(excess_higher_estimate)-sum(covid_19_deaths))</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##   excess_deaths covid_deaths excess_not_covid
+##           &lt;dbl&gt;        &lt;dbl&gt;            &lt;dbl&gt;
+## 1        322742       228524            94218</code></pre>
+<p>Approximately 1/3 of excess deaths were not attributed to COVID.</p>
+<p>Next I was interested in getting a sense of whether the rate of excess non-covid deaths varied across States.</p>
+<p>In the next code chunk I aggregate the data by state over the entire period, merge the data with another data set containing state level population estimates for 2020.</p>
+<pre class="r"><code>states= merged_data %&gt;% 
+  group_by(state) %&gt;% 
+  filter(end_week &lt; as.Date(&quot;2020-11-1&quot;) &amp; state !=&quot;United States&quot; &amp; state!=&quot;New York City&quot;) %&gt;% 
+  filter(!is.na(covid_19_deaths)) %&gt;% 
+  filter(!is.na(excess_higher_estimate)) %&gt;% 
+  summarise(
+    excess_deaths=sum(excess_higher_estimate),
+    covid_deaths=sum(covid_19_deaths),
+    excess_not_covid=sum(excess_higher_estimate)-sum(covid_19_deaths)) </code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre class="r"><code>state_pop &lt;- read_csv(&quot;data/State_Populations.csv&quot;) %&gt;% 
+  clean_names()</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   State = col_character(),
+##   Population = col_double()
+## )</code></pre>
+<pre class="r"><code>states=right_join(states,state_pop) %&gt;% 
+  mutate(excess_death_r=excess_deaths/population*100000) %&gt;% 
+  mutate(covid_death_r=covid_deaths/population*100000) %&gt;% 
+  mutate(excess_not_covid_r=excess_not_covid/population*100000)</code></pre>
+<pre><code>## Joining, by = &quot;state&quot;</code></pre>
+<pre class="r"><code>panel1 = states %&gt;% 
+ ggplot( aes(x=covid_death_r,y=excess_not_covid_r, size=population))+
+   labs(x = &quot;COVID-19 deaths \n per 100,000 residents&quot;, y = &quot;Excess non-COVID-19 deaths \n per 100,000 residents&quot;) +
+   geom_point(alpha=0.5)+
+  geom_smooth(weight=&quot;population&quot;)+
+  theme(legend.position = &quot;none&quot;) +
+  scale_y_continuous(limits=c(0, 300))
+
+
+panel2 = states %&gt;% 
+ ggplot( aes(x=covid_death_r,y=excess_death_r, size=population))+
+   labs(x = &quot;COVID-19 deaths \n per 100,000 residents&quot;, y = &quot;Excess non-COVID-19 deaths \n per 100,000 residents&quot;) +
+   geom_point(alpha=0.5)+
+  geom_smooth(, weight=&quot;population&quot;)+
+ theme(legend.position = &quot;none&quot;) +
+  scale_y_continuous(limits=c(0, 300))
+
+panel2 + panel1</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_smooth).</code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<pre><code>## Warning: Removed 3 rows containing non-finite values (stat_smooth).</code></pre>
+<pre><code>## Warning: Removed 3 rows containing missing values (geom_point).</code></pre>
+<p><img src="analysis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Next we explore whether the duration of stay at home orders are associated with excess non-covid related mortality.</p>
+<pre class="r"><code>stay_at_home_orders &lt;- read_csv(&quot;data/stay_at_home_orders_final.csv&quot;, 
+    col_types = cols(Start = col_date(format = &quot;%m/%d/%Y&quot;), 
+        End = col_date(format = &quot;%m/%d/%Y&quot;))) %&gt;% 
+  clean_names() %&gt;% 
+  mutate(stay_at_home=if_else(length==0,FALSE,TRUE))
+
+states=right_join(states,stay_at_home_orders)</code></pre>
+<pre><code>## Joining, by = &quot;state&quot;</code></pre>
+<pre class="r"><code>states %&gt;% 
+ ggplot( aes(x=length,y=excess_not_covid_r, size=population))+
+   labs(x = &quot;Length of stay-at-home order (days)&quot;, y = &quot;Excess non-COVID-19 deaths \n per 100,000 residents&quot;) +
+   geom_point(alpha=0.5)+
+  geom_smooth(, weight=&quot;population&quot;)+
+ theme(legend.position = &quot;none&quot;) +
+  scale_y_continuous(limits=c(0, 100))</code></pre>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <pre><code>## Warning: Removed 2 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<pre><code>## Warning: Removed 2 rows containing non-finite values (stat_smooth).
-
-## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<pre><code>## Warning: Removed 2 rows containing non-finite values (stat_smooth).
-
-## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
-<p><img src="analysis_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="analysis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 
 <!DOCTYPE html>
 
