@@ -22,8 +22,19 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -329,12 +340,12 @@ $(document).ready(function () {
 
 
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## -- Attaching packages ------------------------------------------------------------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --</code></pre>
 <pre><code>## v ggplot2 3.3.2     v purrr   0.3.4
 ## v tibble  3.0.3     v dplyr   1.0.2
 ## v tidyr   1.1.2     v stringr 1.4.0
-## v readr   1.3.1     v forcats 0.5.0</code></pre>
-<pre><code>## -- Conflicts ---------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## v readr   1.4.0     v forcats 0.5.0</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(lubridate)</code></pre>
@@ -360,6 +371,9 @@ library(scales)</code></pre>
 <pre><code>## The following object is masked from &#39;package:readr&#39;:
 ## 
 ##     col_factor</code></pre>
+<pre class="r"><code>library(moderndive)
+library(stats)
+library(sandwich)</code></pre>
 <p>For this project we are using two datasets available from the CDC.</p>
 <p>The first is a dataset that includes weekly estimates of expected deaths by week for each US states, as well as observed deaths. It is available for download here: <a href="https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst/" class="uri">https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst/</a></p>
 <pre class="r"><code>excess_deaths &lt;- read_csv(&quot;data/Excess_Deaths_Associated_with_COVID-19.csv&quot;) %&gt;% 
@@ -446,7 +460,8 @@ panel2 + panel1 + panel3</code></pre>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <pre class="r"><code>state_pop &lt;- read_csv(&quot;data/State_Populations.csv&quot;) %&gt;% 
   clean_names()</code></pre>
-<pre><code>## Parsed with column specification:
+<pre><code>## 
+## -- Column specification --------------------------------------------------------
 ## cols(
 ##   State = col_character(),
 ##   Population = col_double()
@@ -481,7 +496,7 @@ panel2 + panel1</code></pre>
 <pre><code>## Warning: Removed 3 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 3 rows containing missing values (geom_point).</code></pre>
 <p><img src="analysis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<p>Next we explore whether the duration of stay at home orders are associated with excess non-covid related mortality.</p>
+<p>Next we explore whether the duration of stay at home orders are associated with excess non-covid related mortality. We import and link data on the lengths of each states stay-at-home-orders based on information aggregated from by the National Academy of State Health Policy (<a href="https://www.nashp.org/governors-prioritize-health-for-all/" class="uri">https://www.nashp.org/governors-prioritize-health-for-all/</a>). We join these data to our state level data set plot stay-at-home order duratoin vs non-covid-19 excess mortality rates.</p>
 <pre class="r"><code>stay_at_home_orders &lt;- read_csv(&quot;data/stay_at_home_orders_final.csv&quot;, 
     col_types = cols(Start = col_date(format = &quot;%m/%d/%Y&quot;), 
         End = col_date(format = &quot;%m/%d/%Y&quot;))) %&gt;% 
@@ -501,6 +516,34 @@ states=right_join(states,stay_at_home_orders)</code></pre>
 <pre><code>## Warning: Removed 2 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
 <p><img src="analysis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Below is a linear model (which acounts for clustering at the state level), that tests the hypothesis of whether duration of lock down is associated with excess non-covid mortality.</p>
+<pre class="r"><code>library(miceadds)</code></pre>
+<pre><code>## Loading required package: mice</code></pre>
+<pre><code>## 
+## Attaching package: &#39;mice&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     cbind, rbind</code></pre>
+<pre><code>## * miceadds 3.10-28 (2020-07-29 21:56:24)</code></pre>
+<pre class="r"><code>library(jtools)
+stay_at_home_model &lt;- lm.cluster(excess_not_covid_r ~ length, data = states, cluster=&quot;state&quot;)
+coef(stay_at_home_model)</code></pre>
+<pre><code>## (Intercept)      length 
+##  34.5792313  -0.0946756</code></pre>
+<pre class="r"><code>vcov(stay_at_home_model)</code></pre>
+<pre><code>##             (Intercept)       length
+## (Intercept)  20.2360476 -0.355223617
+## length       -0.3552236  0.009325475</code></pre>
+<pre class="r"><code>summary(stay_at_home_model)</code></pre>
+<pre><code>## R^2= 0.01246 
+## 
+##               Estimate Std. Error    t value     Pr(&gt;|t|)
+## (Intercept) 34.5792313  4.4984495  7.6869223 1.507166e-14
+## length      -0.0946756  0.0965685 -0.9803984 3.268895e-01</code></pre>
+<p>We found no statistically signficant relationship between length of lock down and excess deaths not attributed to COVID-19 (p=0.33)</p>
 
 <!DOCTYPE html>
 
@@ -524,7 +567,7 @@ Data Science Fall 2020
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();

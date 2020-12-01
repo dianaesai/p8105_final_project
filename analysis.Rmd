@@ -173,14 +173,19 @@ states %>%
    geom_point(alpha=0.5)+
   geom_smooth(, weight="population")+
  theme(legend.position = "none") +
-  scale_y_continuous(limits=c(0, 100))+
+  scale_y_continuous(limits=c(0, 100))
 
 ```
+
+Below is a linear model (which acounts for clustering at the state level), that tests the hypothesis of whether duration of lock down is associated with excess non-covid mortality.
 
 ```{r}
-
-stay_at_home_model <- lm.cluster(excess_not_covid_r ~ length, data = states,cluster=state)
-# Get regression table:
-get_regression_table(stay_at_home_model)
+library(miceadds)
+library(jtools)
+stay_at_home_model <- lm.cluster(excess_not_covid_r ~ length, data = states, cluster="state")
+coef(stay_at_home_model)
+vcov(stay_at_home_model)
+summary(stay_at_home_model)
 
 ```
+We found no statistically signficant relationship between length of lock down and excess deaths not attributed to COVID-19 (p=0.33)
