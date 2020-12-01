@@ -47,8 +47,3 @@ Final Ideas
     cases/hospitalization/deaths tracking by states
   - <https://www.census.gov/data/datasets.html> census data for state’s
     demographic chracteristics
-
-# The planned analyses / visualizations / coding challenges
-
-  - We hope to create a website that includes a variety of graphs using
-    shiny techniques.
