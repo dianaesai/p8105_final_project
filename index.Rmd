@@ -12,7 +12,7 @@ output:
 
 (information on COVID/ why we decided to study this)
 
-## Final Report
+## Final Reports
 
 Our [Report](final_report.html) can be found here
 
