@@ -7,6 +7,7 @@ output:
 ---
 
 <img src="images/covid.JPG" style="width:100%">
+source: https://www.fda.gov/food/food-safety-during-emergencies/food-safety-and-coronavirus-disease-2019-covid-19
 
 ## Introduction
 
