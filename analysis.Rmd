@@ -5,5 +5,90 @@ output: github_document
 
 ```{r}
 library(tidyverse)
+library(lubridate)
+library(readr)
+library(janitor)
+library(patchwork)
+library(scales)
+```
+
+For this project we are using two datasets available from the CDC. 
+
+The first is a dataset that includes weekly estimates of expected deaths by week for each US states, as well as observed deaths. It is available for download here:
+https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst/
+
+```{r message=FALSE, warning=FALSE}
+excess_deaths <- read_csv("data/Excess_Deaths_Associated_with_COVID-19.csv") %>% 
+  clean_names() %>% 
+  rename(end_week=week_ending_date) %>% 
+  filter(type=="Predicted (weighted)"&outcome=="All causes") 
+```    
+
+The second dataset includes the weekly counts of COVID-19 related deaths in the for each US state. And is avalailable here: https://data.cdc.gov/NCHS/Provisional-COVID-19-Death-Counts-by-Week-Ending-D/r8kw-7aab
+
+```{r message=FALSE, warning=FALSE}
+covid_deaths <- read_csv("data/Provisional_COVID-19_Death_Counts_by_Week_Ending_Date_and_State.csv") %>% 
+  clean_names() %>%
+  mutate(end_week=mdy(end_week))%>%
+  select(end_week,state,covid_19_deaths,total_deaths,percent_of_expected_deaths,pneumonia_deaths, pneumonia_and_covid_19_deaths, influenza_deaths, pneumonia_influenza_or_covid_19_deaths) 
+
+merged_data <- inner_join(covid_deaths,excess_deaths) %>% 
+  mutate(excess_non_covid=excess_higher_estimate-covid_19_deaths)
+
+
+```
+
+These datasets are updated frequently. This analysis is based on data downloaded on December 1, 2020. Also because death reporting takes time this analysis focuses on deaths reported through the end of October 2020.
+
+
+To explore the relationship between excess deaths, deaths attributed to COVID-19, and excess deaths that were not attributed to COVID-19, we generated time series plots for these quanities for the entire nation. 
+
+```{r}
+
+panel1=merged_data %>% 
+  filter(state=="United States") %>% 
+   ggplot(aes(x=end_week,y=covid_19_deaths))+
+   labs(x = "Date", y = "COVID-19 deaths") +
+   geom_point(alpha=0.5, size=3)+
+   geom_smooth(se=FALSE, span=0.2) +
+    scale_x_date(
+    labels = date_format("%m-%Y"),
+    breaks= c(as.Date("2020/2/1"),as.Date("2020/5/1"),as.Date("2020/8/1"), as.Date("2020/11/1")),
+    limits= c(as.Date("2020/2/1"), as.Date("2020/10/31")))+
+  theme(axis.text.x=element_text(angle=45,hjust=1))+
+   scale_y_continuous(limits=c(-1000, 25000))
+
+
+panel2= merged_data  %>% 
+  filter(state=="United States") %>% 
+   ggplot(aes(x=end_week,y=excess_higher_estimate))+
+   labs(x = "Date", y = "Excess deaths") +
+   geom_point(alpha=0.5, size=3)+
+   geom_smooth(se=FALSE, span=0.2) +
+
+    scale_x_date(
+    labels = date_format("%m-%Y"),
+    breaks= c(as.Date("2020/2/1"),as.Date("2020/5/1"),as.Date("2020/8/1"), as.Date("2020/11/1")),
+    limits= c(as.Date("2020/2/1"), as.Date("2020/10/31")))+
+  theme(axis.text.x=element_text(angle=45,hjust=1))+
+   scale_y_continuous(limits=c(-1000, 25000))
+
+panel3=
+ merged_data %>%
+  filter(state=="United States") %>% 
+  ggplot(aes(x=end_week,y=excess_non_covid))+
+   labs(x = "Date", y = "Excess deaths not attributed to COVID-19") +
+   geom_point(alpha=0.5, size=3)+
+   geom_smooth(se=FALSE, span=0.2) +
+
+    scale_x_date(
+    labels = date_format("%m-%Y"),
+    breaks= c(as.Date("2020/2/1"),as.Date("2020/5/1"),as.Date("2020/8/1"), as.Date("2020/11/1")),
+    limits= c(as.Date("2020/2/1"), as.Date("2020/10/31")))+
+  theme(axis.text.x=element_text(angle=45,hjust=1))+
+   scale_y_continuous(limits=c(-1000, 25000))
+
+panel2 + panel1 + panel3
+   
 ```
 
