@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "Introduction"
 output: 
   html_document:
       toc: true
@@ -8,33 +8,31 @@ output:
 
 <br>
 
+<img src="images/covid_protest.jpeg" style="width:100%">
+*Liberate Michigan" protests against governor Gretchen Whitmer's Lockdown orders.*
+<br>
+
 ### **Motivation**
-Since the start of COVID-19, a range of conspiracy theories have spun up in the United States about the scope and severity of the pandemic. The [President](https://apnews.com/article/virus-outbreak-donald-trump-ap-fact-check-anthony-fauci-flu-fe474f0c15f76adf324791a2cfc1e2bb) of the United States has repeatedly compared coronavirus to the flu, claiming that the lethality of the two diseases are comparable. These words are the reflection a larger population's attitude on 
+Since the start of COVID-19, a range of conspiracy theories have spun up in the United States about the scope and severity of the pandemic. The [President](https://apnews.com/article/virus-outbreak-donald-trump-ap-fact-check-anthony-fauci-flu-fe474f0c15f76adf324791a2cfc1e2bb) has repeatedly compared coronavirus to the flu, claiming that the lethality of the two diseases are comparable. These words are reflective of a sizable portion of the public opinion - a belief that COVID-19 is not the most severe public health threat since the 1918 Spanish Flu. Furthermore, as the pandemic had  worn on, the general public has grown increasingly skeptical of the preventive measures that public health officials have promoted. Throughout the developed world, the idea that ["lockdowns kill people"](https://www.radiologybusiness.com/topics/policy/scott-atlas-radiologist-white-house-covid-19-fauci) has been picked up by an increasingly large portions of officials. Opponents of lockdowns claim that these restrictions have significant negative impacts on other aspects of public health, and those consequences vastly outweigh the the supposed benefits that these preventive measures are intended for.  
 
 <br>
 
-### **Methods**
+### **Exploratory Analyses**
+We believe that the excess deaths data from Center of Disease Control, in comparison to Covid-19 deaths/cases, provides a holistic assessment of the impact of pandemic. The excess deaths data is a self-explanatory variable that the general public, even one without any form of public health training, can easily understand. Our analysis seeks to answer the following questions that would help the public to better understand the severity of the pandemic as well as the effectiveness/necessity of public preventive measures.  
 
-Data from five sources were considered for this project. The data sources, scraping methods and cleaning procedures for each dataset are described below. 
-
-*  The Github repository for this project can be found [here](https://github.com/wx2233/p8105_final_project). 
-
-*  The final website can be found [here](https://wx2233.github.io/p8105_final_project/)
-
-* The shiny repository can be found [here](https://wx2233-shiny.shinyapps.io/final_shiny_dashboard/)
+* What are the excess deaths data of 2020 look like? Is excess deaths data of 2020 significantly different from recent years?  
+* Is COVID-19 responsible for the increase (or lackthereof) in excess deaths. If not, what are the other causes?  
+* Are the pandemic prevention measures such as travel restrictions and lockdowns contributing associated with significant negative public health consequences?  
+* How effective are those pandemic prevention measures in reducing the casulties caused by COVID-19?  
 
 <br>
 
 ### **Data**
-***NYPD Motor Vehicle Collisions-Crashes Data*** is from the [NYC Open Data](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95). NYC Open Data is free public data published by New York City agencies and other partners. The Motor Vehicle Collisions data tables contain information from all police reported motor vehicle collisions in NYC. The police report [MV104-AN](https://www.nhtsa.gov/sites/nhtsa.dot.gov/files/documents/ny_overlay_mv-104an_rev05_2004.pdf) is required to be filled out for collisions where someone is injured or killed, or where there is at least $1000 worth of damage.
+***Excess Deaths Associated with COVID-19*** is from the [Centers for Disease Control and Prevention](https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst/). Excess Deaths Data is free public data published by Centers for Disease Control and Prevention. Estimates of excess deaths presented in this webpage were calculated using Farrington surveillance algorithms (1). For each jurisdiction, a model is used to generate a set of expected counts, and the upper bound of the 95% Confidence Intervals (95% CI) of these expected counts is used as a threshold to estimate excess deaths. Observed counts are compared to these upper bound estimates to determine whether a significant increase in deaths has occurred. 
 
-***DOHMH New York City Restaurant Inspection Results Data*** was obtained from the [NYC Open Data](https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j). The dataset was used to assess the association between the restaurant number and alcohol involved collision cases 
+***Provisional COVID-19 Death Counts by Week Ending Date and State*** was obtained from the [Centers for Disease Control and Prevention](https://data.cdc.gov/NCHS/Provisional-COVID-19-Death-Counts-by-Week-Ending-D/r8kw-7aab). Deaths involving coronavirus disease 2019 (COVID-19), pneumonia, and influenza reported to NCHS by week ending date and by state.
 
-Data on ***U.S legal holidays*** was taken from the [Federal Holidays](https://www.redcort.com/us-federal-bank-holidays/).Federal holidays may affect the number of accidents since number of people going outside varies among holidays.  
-
-***Traffic Signals Data*** is uploaded from [NYC Open Data](https://data.cityofnewyork.us/Transportation/DOT-Street-Lights-and-Traffic-Signals-311-Service-/jwvp-gyiq). This dataset contains all 311 Service Requests from 2010 to present which is automatically updated daily. Also, details related to services were included. 311 is a non-emergency phone number that people can call in many cities to find information about services, make complaints, or report problems like graffiti or road damage.
-
-***Weather Data*** was taken from [National Centers For Environmental Information](https://www.ncdc.noaa.gov/cdo-web/search). It was used to figure out the influences given by different weather types, such as fog, sunny, mist etc,. Also, influences caused by levels of precipitation on accident events were also evaluated. 
+***COVID-19 Prevention Methods by States*** was obtained from the [National Academy of State Health Policy](https://www.nashp.org/governors-prioritize-health-for-all/). We import and link data on the lengths of each states stay-at-home-orders, mask mandate as well as travel restrictions based on information aggregated from by the National Academy of State Health Policy. 
 
 <br>
 
