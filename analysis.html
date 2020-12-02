@@ -583,7 +583,7 @@ excess_deaths_not_from_covid_rate
 <p>This state-level dataset is used to visually explore the relationships between state-level COVID-19 death rates, excess mortality rates, and rates of excess non-COVID-19 mortality per 100,000 residents.</p>
 <pre class="r"><code>panel1 = states %&gt;% 
  ggplot( aes(x=covid_death_r,y=excess_not_covid_r, size=population))+
-   labs(x = &quot;COVID-19 deaths \n per 100,000 residents&quot;, y = &quot;Excess non-COVID-19 deaths \n per 100,000 residents&quot;) +
+   labs(x = &quot;COVID-19 deaths \n per 100,000 residents&quot;, y = &quot;Excess COVID-19 deaths not attributed\n to COVID-19 per 100,000 residents&quot;) +
    geom_point(alpha=0.5)+
   geom_smooth(weight=&quot;population&quot;)+
   theme(legend.position = &quot;none&quot;) +
@@ -592,7 +592,7 @@ excess_deaths_not_from_covid_rate
 
 panel2 = states %&gt;% 
  ggplot( aes(x=covid_death_r,y=excess_death_r, size=population))+
-   labs(x = &quot;COVID-19 deaths \n per 100,000 residents&quot;, y = &quot;Excess non-COVID-19 deaths \n per 100,000 residents&quot;) +
+   labs(x = &quot;COVID-19 deaths \n per 100,000 residents&quot;, y = &quot;Excess deaths \n per 100,000 residents&quot;) +
    geom_point(alpha=0.5)+
   geom_smooth(, weight=&quot;population&quot;)+
  theme(legend.position = &quot;none&quot;) +
@@ -617,7 +617,7 @@ states=right_join(states,stay_at_home_orders)</code></pre>
 <pre><code>## Joining, by = &quot;state&quot;</code></pre>
 <pre class="r"><code>states %&gt;% 
  ggplot( aes(x=length,y=excess_not_covid_r, size=population))+
-   labs(x = &quot;Length of stay-at-home order (days)&quot;, y = &quot;Excess non-COVID-19 deaths \n per 100,000 residents&quot;) +
+   labs(x = &quot;Length of stay-at-home order (days)&quot;, y = &quot;Excess COVID-19 deaths not attributed\n to COVID-19 per 100,000 residents&quot;) +
    geom_point(alpha=0.5)+
   geom_smooth(, weight=&quot;population&quot;)+
  theme(legend.position = &quot;none&quot;) +

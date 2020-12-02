@@ -149,7 +149,7 @@ This state-level dataset is used to visually explore the relationships between s
 
 panel1 = states %>% 
  ggplot( aes(x=covid_death_r,y=excess_not_covid_r, size=population))+
-   labs(x = "COVID-19 deaths \n per 100,000 residents", y = "Excess non-COVID-19 deaths \n per 100,000 residents") +
+   labs(x = "COVID-19 deaths \n per 100,000 residents", y = "Excess COVID-19 deaths not attributed\n to COVID-19 per 100,000 residents") +
    geom_point(alpha=0.5)+
   geom_smooth(weight="population")+
   theme(legend.position = "none") +
@@ -158,7 +158,7 @@ panel1 = states %>%
 
 panel2 = states %>% 
  ggplot( aes(x=covid_death_r,y=excess_death_r, size=population))+
-   labs(x = "COVID-19 deaths \n per 100,000 residents", y = "Excess non-COVID-19 deaths \n per 100,000 residents") +
+   labs(x = "COVID-19 deaths \n per 100,000 residents", y = "Excess deaths \n per 100,000 residents") +
    geom_point(alpha=0.5)+
   geom_smooth(, weight="population")+
  theme(legend.position = "none") +
@@ -180,7 +180,7 @@ states=right_join(states,stay_at_home_orders)
 
 states %>% 
  ggplot( aes(x=length,y=excess_not_covid_r, size=population))+
-   labs(x = "Length of stay-at-home order (days)", y = "Excess non-COVID-19 deaths \n per 100,000 residents") +
+   labs(x = "Length of stay-at-home order (days)", y = "Excess COVID-19 deaths not attributed\n to COVID-19 per 100,000 residents") +
    geom_point(alpha=0.5)+
   geom_smooth(, weight="population")+
  theme(legend.position = "none") +
