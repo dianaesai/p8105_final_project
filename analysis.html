@@ -24,6 +24,8 @@
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -373,7 +375,13 @@ library(scales)</code></pre>
 ##     col_factor</code></pre>
 <pre class="r"><code>library(moderndive)
 library(stats)
-library(sandwich)</code></pre>
+library(skimr)
+library(kableExtra)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;kableExtra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     group_rows</code></pre>
 <p>For this project we are using two datasets available from the CDC.</p>
 <p>The first is a dataset that includes weekly estimates of expected deaths by week for each US states, as well as observed deaths. It is available for download here: <a href="https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst/" class="uri">https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst/</a></p>
 <pre class="r"><code>excess_deaths &lt;- read_csv(&quot;data/Excess_Deaths_Associated_with_COVID-19.csv&quot;) %&gt;% 
@@ -440,14 +448,42 @@ panel2 + panel1 + panel3</code></pre>
   summarise(
     excess_deaths=sum(excess_higher_estimate),
     covid_deaths=sum(covid_19_deaths),
-    excess_not_covid=sum(excess_higher_estimate)-sum(covid_19_deaths))</code></pre>
-<pre><code>## # A tibble: 1 x 3
-##   excess_deaths covid_deaths excess_not_covid
-##           &lt;dbl&gt;        &lt;dbl&gt;            &lt;dbl&gt;
-## 1        322742       228524            94218</code></pre>
+    excess_not_covid=sum(excess_higher_estimate)-sum(covid_19_deaths)) %&gt;% 
+   kbl(caption=&quot;Excess and Covid Deaths in the United States: Feb-October, 2002&quot;, digits = 1) %&gt;% kable_classic()</code></pre>
+<table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+<caption>
+Excess and Covid Deaths in the United States: Feb-October, 2002
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+excess_deaths
+</th>
+<th style="text-align:right;">
+covid_deaths
+</th>
+<th style="text-align:right;">
+excess_not_covid
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+322742
+</td>
+<td style="text-align:right;">
+228524
+</td>
+<td style="text-align:right;">
+94218
+</td>
+</tr>
+</tbody>
+</table>
 <p>Approximately 1/3 of excess deaths were not attributed to COVID.</p>
-<p>Next I was interested in getting a sense of whether the rate of excess non-covid deaths varied across States.</p>
-<p>In the next code chunk I aggregate the data by state over the entire period, merge the data with another data set containing state level population estimates for 2020.</p>
+<p>Next I was interested in getting a sense of whether the rate of excess non-COVID-19 deaths varied across States.</p>
+<p>In the next code chunk I aggregate the data by state over the entire period, merge the data with another data set containing state level population estimates for 2020. I then calculate rates of COVID-19 deaths, excess deaths, and excess deaths not attributable to COVID-19 (per 100,000 residents) for each state, and calculate the median and intraquartile range for these quatities.</p>
 <pre class="r"><code>states= merged_data %&gt;% 
   group_by(state) %&gt;% 
   filter(end_week &lt; as.Date(&quot;2020-11-1&quot;) &amp; state !=&quot;United States&quot; &amp; state!=&quot;New York City&quot;) %&gt;% 
@@ -471,6 +507,80 @@ panel2 + panel1 + panel3</code></pre>
   mutate(covid_death_r=covid_deaths/population*100000) %&gt;% 
   mutate(excess_not_covid_r=excess_not_covid/population*100000)</code></pre>
 <pre><code>## Joining, by = &quot;state&quot;</code></pre>
+<pre class="r"><code>states %&gt;% 
+  select(excess_death_r, covid_death_r, excess_not_covid_r) %&gt;% 
+  rename(excess_death_rate=excess_death_r,covid_death_rate=covid_death_r,excess_deaths_not_from_covid_rate=excess_not_covid_r) %&gt;% 
+  skim_without_charts() %&gt;% 
+  select(skim_variable, numeric.p50, numeric.p25, numeric.p75) %&gt;% 
+  rename(Rate=skim_variable, Median=numeric.p50, p25=numeric.p25, p75th=numeric.p75) %&gt;% 
+   kbl(caption=&quot;Rates of excess and COVID-19 deaths (per 100,000 residents) among US States and District of Columbia: Feb-October, 2020&quot;, digits = 1) %&gt;% 
+  kable_classic() </code></pre>
+<table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+<caption>
+Rates of excess and COVID-19 deaths (per 100,000 residents) among US States and District of Columbia: Feb-October, 2020
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Rate
+</th>
+<th style="text-align:right;">
+Median
+</th>
+<th style="text-align:right;">
+p25
+</th>
+<th style="text-align:right;">
+p75th
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+excess_death_rate
+</td>
+<td style="text-align:right;">
+82.1
+</td>
+<td style="text-align:right;">
+65.5
+</td>
+<td style="text-align:right;">
+108.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+covid_death_rate
+</td>
+<td style="text-align:right;">
+52.3
+</td>
+<td style="text-align:right;">
+39.0
+</td>
+<td style="text-align:right;">
+70.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+excess_deaths_not_from_covid_rate
+</td>
+<td style="text-align:right;">
+27.7
+</td>
+<td style="text-align:right;">
+19.7
+</td>
+<td style="text-align:right;">
+40.9
+</td>
+</tr>
+</tbody>
+</table>
+<p>This state-level dataset is used to visually explore the relationships between state-level COVID-19 death rates, excess mortality rates, and rates of excess non-COVID-19 mortality per 100,000 residents.</p>
 <pre class="r"><code>panel1 = states %&gt;% 
  ggplot( aes(x=covid_death_r,y=excess_not_covid_r, size=population))+
    labs(x = &quot;COVID-19 deaths \n per 100,000 residents&quot;, y = &quot;Excess non-COVID-19 deaths \n per 100,000 residents&quot;) +
@@ -496,7 +606,7 @@ panel2 + panel1</code></pre>
 <pre><code>## Warning: Removed 3 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 3 rows containing missing values (geom_point).</code></pre>
 <p><img src="analysis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<p>Next we explore whether the duration of stay at home orders are associated with excess non-covid related mortality. We import and link data on the lengths of each states stay-at-home-orders based on information aggregated from by the National Academy of State Health Policy (<a href="https://www.nashp.org/governors-prioritize-health-for-all/" class="uri">https://www.nashp.org/governors-prioritize-health-for-all/</a>). We join these data to our state level data set plot stay-at-home order duratoin vs non-covid-19 excess mortality rates.</p>
+<p>We explore whether the duration of stay at home orders are associated with excess non-covid related mortality. We import and link data on the lengths of each states stay-at-home-orders based on information aggregated from by the National Academy of State Health Policy (<a href="https://www.nashp.org/governors-prioritize-health-for-all/" class="uri">https://www.nashp.org/governors-prioritize-health-for-all/</a>). We join these data to our state level data set plot stay-at-home order duratoin vs non-covid-19 excess mortality rates.</p>
 <pre class="r"><code>stay_at_home_orders &lt;- read_csv(&quot;data/stay_at_home_orders_final.csv&quot;, 
     col_types = cols(Start = col_date(format = &quot;%m/%d/%Y&quot;), 
         End = col_date(format = &quot;%m/%d/%Y&quot;))) %&gt;% 
@@ -516,7 +626,8 @@ states=right_join(states,stay_at_home_orders)</code></pre>
 <pre><code>## Warning: Removed 2 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
 <p><img src="analysis_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<p>Below is a linear model (which acounts for clustering at the state level), that tests the hypothesis of whether duration of lock down is associated with excess non-covid mortality.</p>
+<p>Finally we fit some regression models to evaluate several hypothesis.</p>
+<p>First we evaluate the hypothesis (which is pretty obvious) that state excess mortality rate during the COVID epidemic is associated with COVID-19 mortality. We fit a bivariable linear regression model, with cluster robust standard errors.</p>
 <pre class="r"><code>library(miceadds)</code></pre>
 <pre><code>## Loading required package: mice</code></pre>
 <pre><code>## 
@@ -528,22 +639,59 @@ states=right_join(states,stay_at_home_orders)</code></pre>
 ## 
 ##     cbind, rbind</code></pre>
 <pre><code>## * miceadds 3.10-28 (2020-07-29 21:56:24)</code></pre>
-<pre class="r"><code>library(jtools)
-stay_at_home_model &lt;- lm.cluster(excess_not_covid_r ~ length, data = states, cluster=&quot;state&quot;)
-coef(stay_at_home_model)</code></pre>
-<pre><code>## (Intercept)      length 
-##  34.5792313  -0.0946756</code></pre>
-<pre class="r"><code>vcov(stay_at_home_model)</code></pre>
-<pre><code>##             (Intercept)       length
-## (Intercept)  20.2360476 -0.355223617
-## length       -0.3552236  0.009325475</code></pre>
-<pre class="r"><code>summary(stay_at_home_model)</code></pre>
+<pre class="r"><code>mod1 &lt;- lm.cluster(excess_death_r ~ covid_death_r, data = states, cluster=&quot;state&quot;)</code></pre>
+<pre><code>## Loading required namespace: sandwich</code></pre>
+<pre class="r"><code>summary(mod1) </code></pre>
+<pre><code>## R^2= 0.84055 
+## 
+##                Estimate Std. Error   t value     Pr(&gt;|t|)
+## (Intercept)   20.490304  5.8769983  3.486525 4.893389e-04
+## covid_death_r  1.174205  0.1071758 10.955872 6.227541e-28</code></pre>
+<pre class="r"><code>confint(mod1) </code></pre>
+<pre><code>##                   2.5 %    97.5 %
+## (Intercept)   8.9715989 32.009009
+## covid_death_r 0.9641438  1.384265</code></pre>
+<p>Accounting for state-level clustering, we found a statistically significant association between the COVID-19 death rate and the excess mortality rate among US states (p&lt;0.001). Each additional death per 100,000 residents was associated was 1.2 excess deaths per 100,000 individuals (95% CI 0.9 to 1.4). We observed that 84% in the variability in excess mortality among states was explained by the COVID-19 death rate.</p>
+<p>Next we evaluated the less obvious hypothesis that the rate of excess death not attributable to COVID-19 was associated with the COVID-19 death rate. We fit a similar model:</p>
+<pre class="r"><code>mod2 &lt;- lm.cluster(excess_not_covid_r ~ covid_death_r, data = states, cluster=&quot;state&quot;)
+summary(mod2) </code></pre>
+<pre><code>## R^2= 0.10396 
+## 
+##                 Estimate Std. Error  t value     Pr(&gt;|t|)
+## (Intercept)   20.4903038  5.8769983 3.486525 0.0004893389
+## covid_death_r  0.1742046  0.1071758 1.625409 0.1040753359</code></pre>
+<pre class="r"><code>confint(mod2) </code></pre>
+<pre><code>##                     2.5 %     97.5 %
+## (Intercept)    8.97159886 32.0090088
+## covid_death_r -0.03585615  0.3842653</code></pre>
+<p>There was no statistically significant association between the rate of excess deaths not attributed to COVID-19 and the rate of COVID-19 mortality (p=0.10).</p>
+<p>Finally we fit a linear model (which accounts for clustering at the state level), to tests the hypothesis that the duration of a states lock down is associated with excess mortality to attributed to COVID=19.</p>
+<pre class="r"><code>library(miceadds)
+mod3 &lt;- lm.cluster(excess_not_covid_r ~ length, data = states, cluster=&quot;state&quot;)
+summary(mod3)</code></pre>
 <pre><code>## R^2= 0.01246 
 ## 
 ##               Estimate Std. Error    t value     Pr(&gt;|t|)
 ## (Intercept) 34.5792313  4.4984495  7.6869223 1.507166e-14
 ## length      -0.0946756  0.0965685 -0.9803984 3.268895e-01</code></pre>
-<p>We found no statistically signficant relationship between length of lock down and excess deaths not attributed to COVID-19 (p=0.33)</p>
+<pre class="r"><code>confint(mod3) </code></pre>
+<pre><code>##                  2.5 %      97.5 %
+## (Intercept) 25.7624324 43.39603024
+## length      -0.2839464  0.09459518</code></pre>
+<p>Modeling lockdown duration as a continuous variable with a linear relationship with excess mortality, We found no statistically significant relationship between length of lock down and excess deaths not attributed to COVID-19 (p=0.33)</p>
+<p>We fit another model modeling lock downs as a present/absent variable</p>
+<pre class="r"><code>mod4 &lt;- lm.cluster(excess_not_covid_r ~ stay_at_home, data = states, cluster=&quot;state&quot;)
+summary(mod4)</code></pre>
+<pre><code>## R^2= 0.00607 
+## 
+##                   Estimate Std. Error   t value     Pr(&gt;|t|)
+## (Intercept)      26.589738   4.370597 6.0837768 1.173840e-09
+## stay_at_homeTRUE  4.474564   5.261647 0.8504113 3.950964e-01</code></pre>
+<pre class="r"><code>confint(mod4) </code></pre>
+<pre><code>##                      2.5 %   97.5 %
+## (Intercept)      18.023525 35.15595
+## stay_at_homeTRUE -5.838074 14.78720</code></pre>
+<p>Again, while states with lockdowns had a rates of excess deaths that were not attributed to COVID-19 that were higher by 4.5 per 100,000 residents (95% CI -5.8 to 14.8), this association was not statistically significant (p=0.40).</p>
 
 <!DOCTYPE html>
 

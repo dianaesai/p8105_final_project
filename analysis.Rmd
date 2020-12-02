@@ -12,7 +12,8 @@ library(patchwork)
 library(scales)
 library(moderndive)
 library(stats)
-library(sandwich)
+library(skimr)
+library(kableExtra)
 ```
 
 For this project we are using two datasets available from the CDC. 
@@ -102,14 +103,16 @@ merged_data %>%
   summarise(
     excess_deaths=sum(excess_higher_estimate),
     covid_deaths=sum(covid_19_deaths),
-    excess_not_covid=sum(excess_higher_estimate)-sum(covid_19_deaths))
+    excess_not_covid=sum(excess_higher_estimate)-sum(covid_19_deaths)) %>% 
+   kbl(caption="Excess and Covid Deaths in the United States: Feb-October, 2002", digits = 1) %>% kable_classic()
+  
 ```
 Approximately 1/3 of excess deaths were not attributed to COVID.
 
 
-Next I was interested in getting a sense of whether the rate of excess non-covid deaths varied across States.
+Next I was interested in getting a sense of whether the rate of excess non-COVID-19 deaths varied across States.
 
-In the next code chunk I aggregate the data by state over the entire period, merge the data with another data set containing state level population estimates for 2020. 
+In the next code chunk I aggregate the data by state over the entire period, merge the data with another data set containing state level population estimates for 2020. I then calculate rates of COVID-19 deaths, excess deaths, and excess deaths not attributable to COVID-19 (per 100,000 residents) for each state, and calculate the median and intraquartile range for these quatities.
 
 ```{r}
 states= merged_data %>% 
@@ -130,9 +133,17 @@ states=right_join(states,state_pop) %>%
   mutate(covid_death_r=covid_deaths/population*100000) %>% 
   mutate(excess_not_covid_r=excess_not_covid/population*100000)
 
+states %>% 
+  select(excess_death_r, covid_death_r, excess_not_covid_r) %>% 
+  rename(excess_death_rate=excess_death_r,covid_death_rate=covid_death_r,excess_deaths_not_from_covid_rate=excess_not_covid_r) %>% 
+  skim_without_charts() %>% 
+  select(skim_variable, numeric.p50, numeric.p25, numeric.p75) %>% 
+  rename(Rate=skim_variable, Median=numeric.p50, p25=numeric.p25, p75th=numeric.p75) %>% 
+   kbl(caption="Rates of excess and COVID-19 deaths (per 100,000 residents) among US States and District of Columbia: Feb-October, 2020", digits = 1) %>% 
+  kable_classic() 
 
 ```
-
+This state-level dataset is used to visually explore the relationships between state-level COVID-19 death rates, excess mortality rates, and rates of excess non-COVID-19 mortality per 100,000 residents. 
 
 ```{r}
 
@@ -156,7 +167,7 @@ panel2 = states %>%
 panel2 + panel1
 ```
 
-Next we explore whether the duration of stay at home orders are associated with excess non-covid related mortality. We import and link data on the lengths of each states stay-at-home-orders based on information aggregated from by the National Academy of State Health Policy (https://www.nashp.org/governors-prioritize-health-for-all/). We join these data to our state level data set plot stay-at-home order duratoin vs non-covid-19 excess mortality rates. 
+We explore whether the duration of stay at home orders are associated with excess non-covid related mortality. We import and link data on the lengths of each states stay-at-home-orders based on information aggregated from by the National Academy of State Health Policy (https://www.nashp.org/governors-prioritize-health-for-all/). We join these data to our state level data set plot stay-at-home order duratoin vs non-covid-19 excess mortality rates. 
 
 ```{r}
 stay_at_home_orders <- read_csv("data/stay_at_home_orders_final.csv", 
@@ -177,15 +188,52 @@ states %>%
 
 ```
 
-Below is a linear model (which acounts for clustering at the state level), that tests the hypothesis of whether duration of lock down is associated with excess non-covid mortality.
+Finally we fit some regression models to evaluate several hypothesis.
+
+First we evaluate the hypothesis (which is pretty obvious) that state excess mortality rate during the COVID epidemic is associated with COVID-19 mortality. We fit a bivariable linear regression model, with cluster robust standard errors.
+```{r}
+library(miceadds)
+mod1 <- lm.cluster(excess_death_r ~ covid_death_r, data = states, cluster="state")
+summary(mod1) 
+confint(mod1) 
+```
+
+Accounting for state-level clustering, we found a statistically significant association between the COVID-19 death rate and the excess mortality rate among US states (p<0.001). Each additional death per 100,000 residents was associated was 1.2 excess deaths per 100,000 individuals (95% CI 0.9 to 1.4). We observed that 84% in the variability in excess mortality among states was explained by the COVID-19 death rate. 
+
+
+
+Next we evaluated the less obvious hypothesis that the rate of excess death not attributable to COVID-19 was associated with the COVID-19 death rate. We fit a similar model:
+
+
+```{r}
+
+mod2 <- lm.cluster(excess_not_covid_r ~ covid_death_r, data = states, cluster="state")
+summary(mod2) 
+confint(mod2) 
+
+```
+
+There was no statistically significant association between the rate of excess deaths not attributed to COVID-19 and the rate of COVID-19 mortality (p=0.10).
+
+Finally we fit a linear model (which accounts for clustering at the state level), to tests the hypothesis that the duration of a states lock down is associated with excess mortality to attributed to COVID=19.
 
 ```{r}
 library(miceadds)
-library(jtools)
-stay_at_home_model <- lm.cluster(excess_not_covid_r ~ length, data = states, cluster="state")
-coef(stay_at_home_model)
-vcov(stay_at_home_model)
-summary(stay_at_home_model)
+mod3 <- lm.cluster(excess_not_covid_r ~ length, data = states, cluster="state")
+summary(mod3)
+confint(mod3) 
+
 
 ```
-We found no statistically signficant relationship between length of lock down and excess deaths not attributed to COVID-19 (p=0.33)
+Modeling lockdown duration as a continuous variable with a linear relationship with excess mortality, We found no statistically significant relationship between length of lock down and excess deaths not attributed to COVID-19 (p=0.33)
+
+We fit another model modeling lock downs as a present/absent variable
+
+```{r}
+mod4 <- lm.cluster(excess_not_covid_r ~ stay_at_home, data = states, cluster="state")
+summary(mod4)
+confint(mod4) 
+
+
+```
+Again, while states with lockdowns had a rates of excess deaths that were not attributed to COVID-19 that were higher by 4.5 per 100,000 residents (95% CI -5.8 to 14.8), this association was not statistically significant (p=0.40).
