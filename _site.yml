@@ -3,11 +3,12 @@ output_dir: "."
 
 navbar:
   title: "Home"
-  left:
   right:
+    - text: "About"
+      href: about.html
     - text: "Analyses"
       href: dashboard.html
-    - text: "Final Report"
+    - text: "Conclusion"
       href: final_report.html
     - icon: fa-github fa-lg
       href: https://github.com/dianaesai/p8105_final_project.git
