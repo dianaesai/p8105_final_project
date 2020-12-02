@@ -19,9 +19,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -253,69 +250,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-
 
 </head>
 
@@ -323,16 +257,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -408,22 +332,26 @@ div.tocify {
 </div>
 
 
-<p><img src="images/covid.jpg" style="width:100%"> source: <a href="https://www.fda.gov/food/food-safety-during-emergencies/food-safety-and-coronavirus-disease-2019-covid-19" class="uri">https://www.fda.gov/food/food-safety-during-emergencies/food-safety-and-coronavirus-disease-2019-covid-19</a></p>
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
-<p>(information on COVID/ why we decided to study this)</p>
+<div id="exploring-real-impacts-of-covid-19-in-terms-of-excess-deaths-numbers." class="section level3">
+<h3>Exploring Real Impacts Of COVID-19 In Terms Of Excess Deaths Numbers.</h3>
+<p><strong>Chong Li (cl4045), Matthew Angulo (am5195), Alexander Melamed (am5195), Diana Sanchez (des2190)</strong></p>
+<p><img src="images/covid.jpg" style="width:100%"></p>
+<div id="introduction" class="section level4">
+<h4>Introduction</h4>
+<p>Our <a href="about.html">motivations and purposes</a> can be found here.</p>
 </div>
-<div id="final-reports" class="section level2">
-<h2>Final Reports</h2>
-<p>Our <a href="final_report.html">Report</a> can be found here</p>
+<div id="covid-19-casulties" class="section level4">
+<h4>COVID-19 Casulties</h4>
+<p>Our <a href="final_report.html">Analysis</a> on COVID-19 casulties can be found here</p>
 </div>
-<div id="findings" class="section level2">
-<h2>Findings</h2>
-<p>(once Alex completes data analyses)</p>
+<div id="covid-19-preventions" class="section level4">
+<h4>COVID-19 Preventions</h4>
+<p>Our <a href="final_report.html">Analysis</a> on COVID-19 prevention outcomes can be found here</p>
 </div>
-<div id="screencast" class="section level2">
-<h2>Screencast</h2>
-<p>Our Screencast can be found here</p>
+<div id="conclusions" class="section level4">
+<h4>Conclusions</h4>
+<p>Our Conclusion.</p>
+</div>
 </div>
 
 <!DOCTYPE html>
@@ -441,8 +369,6 @@ Data Science Fall 2020
 <p> </p>
 
 
-</div>
-</div>
 
 </div>
 
@@ -475,32 +401,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
