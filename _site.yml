@@ -4,11 +4,11 @@ output_dir: "."
 navbar:
   title: "Home"
   left:
+  right:
     - text: "Analyses"
       href: dashboard.html
     - text: "Final Report"
       href: final_report.html
-  right:
     - icon: fa-github fa-lg
       href: https://github.com/dianaesai/p8105_final_project.git
     - icon: fa-youtube fa-lg
