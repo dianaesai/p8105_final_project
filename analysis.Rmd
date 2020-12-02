@@ -1,6 +1,6 @@
 ---
 title: "Data-analysis"
-output: github_document
+output: pdf_document
 ---
 
 ```{r}

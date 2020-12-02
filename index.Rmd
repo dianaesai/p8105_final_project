@@ -2,23 +2,23 @@
 title: "Excess Deaths and COVID-19"
 output: 
   html_document:
-    toc: true
-    toc_float: true
+    toc: false
 ---
 
+### Exploring Real Impacts Of COVID-19 In Terms Of Excess Deaths Numbers.
+
+**Chong Li (cl4045), Matthew Angulo (ma3997), Alexander Melamed (am5195), Diana Sanchez (des2190)**
+
 <img src="images/covid.JPG" style="width:100%">
-source: https://www.fda.gov/food/food-safety-during-emergencies/food-safety-and-coronavirus-disease-2019-covid-19
 
-## Introduction
+#### Introduction
+Our [motivations and purposes](about.html) can be found here.
 
-(information on COVID/ why we decided to study this)
+#### COVID-19 Casulties  
+Our [Analysis](final_report.html) on COVID-19 casulties can be found here
 
-## Final Reports
+#### COVID-19 Preventions  
+Our [Analysis](final_report.html) on COVID-19 prevention outcomes can be found here
 
-Our [Report](final_report.html) can be found here
-
-## Findings
-(once Alex completes data analyses)
-
-## Screencast
-Our Screencast can be found here
+#### Conclusions
+Our Conclusion.

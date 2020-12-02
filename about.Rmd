@@ -9,26 +9,26 @@ output:
 <br>
 
 <img src="images/covid_protest.jpeg" style="width:100%">
-*Liberate Michigan" protests against governor Gretchen Whitmer's Lockdown orders.*
+*Liberate Michigan" protests against Governor Gretchen Whitmer's lockdown orders.*
 <br>
 
 ### **Motivation**
-Since the start of COVID-19, a range of conspiracy theories have spun up in the United States about the scope and severity of the pandemic. The [President](https://apnews.com/article/virus-outbreak-donald-trump-ap-fact-check-anthony-fauci-flu-fe474f0c15f76adf324791a2cfc1e2bb) has repeatedly compared coronavirus to the flu, claiming that the lethality of the two diseases are comparable. These words are reflective of a sizable portion of the public opinion - a belief that COVID-19 is not the most severe public health threat since the 1918 Spanish Flu. Furthermore, as the pandemic had  worn on, the general public has grown increasingly skeptical of the preventive measures that public health officials have promoted. Throughout the developed world, the idea that ["lockdowns kill people"](https://www.radiologybusiness.com/topics/policy/scott-atlas-radiologist-white-house-covid-19-fauci) has been picked up by an increasingly large portions of officials. Opponents of lockdowns claim that these restrictions have significant negative impacts on other aspects of public health, and those consequences vastly outweigh the the supposed benefits that these preventive measures are intended for.  
+Since the start of COVID-19, a range of conspiracy theories have spun  in the United States about the scope and severity of the pandemic. The [President](https://apnews.com/article/virus-outbreak-donald-trump-ap-fact-check-anthony-fauci-flu-fe474f0c15f76adf324791a2cfc1e2bb) has repeatedly compared coronavirus to the flu, claiming that the lethality of the two diseases are comparable. These words are reflective of a sizable portion of the public opinion - a belief that COVID-19 is not the most severe public health threat since the 1918 Spanish Flu. Furthermore, as the pandemic has worn on, the general public has grown increasingly skeptical of the preventive measures that public health officials promote. Throughout the developed world, an increasing number of elected officials have adopted the idea that ["lockdowns kill people"](https://www.radiologybusiness.com/topics/policy/scott-atlas-radiologist-white-house-covid-19-fauci). Opponents of these lockdowns claim that such restrictions have significant negative impacts on other aspects of public health which outweigh the benefits of mitigation of COVID-19 transmission.   
 
 <br>
 
 ### **Exploratory Analyses**
-We believe that the excess deaths data from Center of Disease Control, in comparison to Covid-19 deaths/cases, provides a holistic assessment of the impact of pandemic. The excess deaths data is a self-explanatory variable that the general public, even one without any form of public health training, can easily understand. Our analysis seeks to answer the following questions that would help the public to better understand the severity of the pandemic as well as the effectiveness/necessity of public preventive measures.  
+We believe that the excess deaths data from Centers for Disease Control and Prevention, in comparison to COVID-19 deaths/cases, provides a holistic assessment of the impact of this pandemic. The excess deaths data is a self-explanatory variable that the general public, even one without any form of public health training, can easily understand. Our analysis seeks to answer the following questions that would help the public to better understand the severity of the pandemic as well as the effectiveness/necessity of public preventive measures.  
 
 * What are the excess deaths data of 2020 look like? Is excess deaths data of 2020 significantly different from recent years?  
-* Is COVID-19 responsible for the increase (or lackthereof) in excess deaths. If not, what are the other causes?  
+* Is COVID-19 responsible for the increase (or lack thereof) in excess deaths. If not, what are the other causes?  
 * Are the pandemic prevention measures such as travel restrictions and lockdowns contributing associated with significant negative public health consequences?  
 * How effective are those pandemic prevention measures in reducing the casulties caused by COVID-19?  
 
 <br>
 
 ### **Data**
-***Excess Deaths Associated with COVID-19*** is from the [Centers for Disease Control and Prevention](https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst/). Excess Deaths Data is free public data published by Centers for Disease Control and Prevention. Estimates of excess deaths presented in this webpage were calculated using Farrington surveillance algorithms (1). For each jurisdiction, a model is used to generate a set of expected counts, and the upper bound of the 95% Confidence Intervals (95% CI) of these expected counts is used as a threshold to estimate excess deaths. Observed counts are compared to these upper bound estimates to determine whether a significant increase in deaths has occurred. 
+***Excess Deaths Associated with COVID-19*** is from the [Centers for Disease Control and Prevention](https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst/). Excess deaths data is free public data published by Centers for Disease Control and Prevention. Estimates of excess deaths presented in this webpage were calculated using Farrington surveillance algorithms (1). For each jurisdiction, a model is used to generate a set of expected counts, and the upper bound of the 95% Confidence Intervals (95% CI) of these expected counts is used as a threshold to estimate excess deaths. Observed counts are compared to these upper bound estimates to determine whether a significant increase in deaths has occurred. 
 
 ***Provisional COVID-19 Death Counts by Week Ending Date and State*** was obtained from the [Centers for Disease Control and Prevention](https://data.cdc.gov/NCHS/Provisional-COVID-19-Death-Counts-by-Week-Ending-D/r8kw-7aab). Deaths involving coronavirus disease 2019 (COVID-19), pneumonia, and influenza reported to NCHS by week ending date and by state.
 
@@ -38,4 +38,4 @@ We believe that the excess deaths data from Center of Disease Control, in compar
 
 ### **Screencast**
 
-The screencast below clearly shows the background, moethod, result and conclusion of our project.
+The screencast below clearly shows the background, method, result and conclusion of our project.
