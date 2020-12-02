@@ -14,6 +14,7 @@ library(moderndive)
 library(stats)
 library(skimr)
 library(kableExtra)
+
 ```
 
 For this project we are using two datasets available from the CDC. 
@@ -28,7 +29,7 @@ excess_deaths <- read_csv("data/Excess_Deaths_Associated_with_COVID-19.csv") %>%
   filter(type=="Predicted (weighted)"&outcome=="All causes") 
 ```    
 
-The second dataset includes the weekly counts of COVID-19 related deaths in the for each US state. And is avalailable here: https://data.cdc.gov/NCHS/Provisional-COVID-19-Death-Counts-by-Week-Ending-D/r8kw-7aab
+The second dataset includes the weekly counts of COVID-19 related deaths in each US state. And is available here: https://data.cdc.gov/NCHS/Provisional-COVID-19-Death-Counts-by-Week-Ending-D/r8kw-7aab
 
 ```{r message=FALSE, warning=FALSE}
 covid_deaths <- read_csv("data/Provisional_COVID-19_Death_Counts_by_Week_Ending_Date_and_State.csv") %>% 
@@ -45,7 +46,7 @@ merged_data <- inner_join(covid_deaths,excess_deaths) %>%
 These datasets are updated frequently. This analysis is based on data downloaded on December 1, 2020. Also because death reporting takes time this analysis focuses on deaths reported through the end of October 2020.
 
 
-To explore the relationship between excess deaths, deaths attributed to COVID-19, and excess deaths that were not attributed to COVID-19, we generated time series plots for these quanities for the entire nation. 
+To explore the relationship between excess deaths, deaths attributed to COVID-19, and excess deaths that were not attributed to COVID-19, we generated time series plots for these quantities for the entire nation. 
 
 ```{r message=FALSE, warning=FALSE}
 
@@ -69,7 +70,6 @@ panel2= merged_data  %>%
    labs(x = "Date", y = "Excess deaths") +
    geom_point(alpha=0.5, size=3)+
    geom_smooth(se=FALSE, span=0.2) +
-
     scale_x_date(
     labels = date_format("%m-%Y"),
     breaks= c(as.Date("2020/2/1"),as.Date("2020/5/1"),as.Date("2020/8/1"), as.Date("2020/11/1")),
@@ -84,7 +84,6 @@ panel3=
    labs(x = "Date", y = "Excess deaths not attributed to COVID-19") +
    geom_point(alpha=0.5, size=3)+
    geom_smooth(se=FALSE, span=0.2) +
-
     scale_x_date(
     labels = date_format("%m-%Y"),
     breaks= c(as.Date("2020/2/1"),as.Date("2020/5/1"),as.Date("2020/8/1"), as.Date("2020/11/1")),
@@ -104,7 +103,7 @@ merged_data %>%
     excess_deaths=sum(excess_higher_estimate),
     covid_deaths=sum(covid_19_deaths),
     excess_not_covid=sum(excess_higher_estimate)-sum(covid_19_deaths)) %>% 
-   kbl(caption="Excess and Covid Deaths in the United States: Feb-October, 2002", digits = 1) %>% kable_classic()
+   kbl(caption="Excess and Covid Deaths in the United States: Feb-October, 2020", digits = 1) %>% kable_classic()
   
 ```
 Approximately 1/3 of excess deaths were not attributed to COVID.
