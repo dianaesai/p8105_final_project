@@ -1,18 +1,9 @@
 ---
-title: "Dashboard"
+title: "Analyses"
 output: 
-  flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
-    source: embed
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
-```{r setup, include=FALSE}
-library(flexdashboard)
-library(tidyverse)
-library(plotly)
-
-```
-
-
-
+### Analysis
