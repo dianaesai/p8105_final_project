@@ -11,7 +11,7 @@
 
 
 
-<title>Final Report</title>
+<title>Prevention Outcomes</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,14 +19,23 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -250,70 +259,10 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
-
-
-
 <style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
+.code-folding-btn { margin-bottom: 4px; }
 </style>
+
 
 
 
@@ -323,16 +272,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -357,6 +296,9 @@ div.tocify {
 </li>
 <li>
   <a href="casulties.html">COVID Impacts</a>
+</li>
+<li>
+  <a href="preventions.html">Prevention Outcomes</a>
 </li>
 <li>
   <a href="final_report.html">Conclusion</a>
@@ -401,15 +343,94 @@ div.tocify {
 
 <div class="fluid-row" id="header">
 
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
 
 
-<h1 class="title toc-ignore">Final Report</h1>
+
+<h1 class="title toc-ignore">Prevention Outcomes</h1>
 
 </div>
 
 
-<div id="final-report" class="section level3">
-<h3>Final Report</h3>
+<div id="are-lockdowns-responsible-for-additional-excess-deaths-that-are-not-related-to-covid-19" class="section level3">
+<h3>Are lockdowns responsible for additional excess deaths that are not related to COVID-19?</h3>
+<pre class="r"><code>excess_deaths &lt;- read_csv(&quot;data/Excess_Deaths_Associated_with_COVID-19.csv&quot;) %&gt;% 
+  clean_names() %&gt;% 
+  rename(end_week=week_ending_date) %&gt;% 
+  filter(type==&quot;Predicted (weighted)&quot;&amp;outcome==&quot;All causes&quot;) 
+
+covid_deaths &lt;- read_csv(&quot;data/Provisional_COVID-19_Death_Counts_by_Week_Ending_Date_and_State.csv&quot;) %&gt;% 
+  clean_names() %&gt;%
+  mutate(end_week=mdy(end_week))%&gt;%
+  select(end_week,state,covid_19_deaths,total_deaths,percent_of_expected_deaths,pneumonia_deaths, pneumonia_and_covid_19_deaths, influenza_deaths, pneumonia_influenza_or_covid_19_deaths) 
+
+merged_data &lt;- inner_join(covid_deaths,excess_deaths) %&gt;% 
+  mutate(excess_non_covid=excess_higher_estimate-covid_19_deaths)
+
+states= merged_data %&gt;% 
+  group_by(state) %&gt;% 
+  filter(end_week &lt; as.Date(&quot;2020-11-1&quot;) &amp; state !=&quot;United States&quot; &amp; state!=&quot;New York City&quot;) %&gt;% 
+  filter(!is.na(covid_19_deaths)) %&gt;% 
+  filter(!is.na(excess_higher_estimate)) %&gt;% 
+  summarise(
+    excess_deaths=sum(excess_higher_estimate),
+    covid_deaths=sum(covid_19_deaths),
+    excess_not_covid=sum(excess_higher_estimate)-sum(covid_19_deaths)) 
+
+state_pop &lt;- read_csv(&quot;data/State_Populations.csv&quot;) %&gt;% 
+  clean_names()
+
+states=right_join(states,state_pop) %&gt;% 
+  mutate(excess_death_r=excess_deaths/population*100000) %&gt;% 
+  mutate(covid_death_r=covid_deaths/population*100000) %&gt;% 
+  mutate(excess_not_covid_r=excess_not_covid/population*100000)
+
+stay_at_home_orders &lt;- read_csv(&quot;data/stay_at_home_orders_final.csv&quot;, 
+    col_types = cols(Start = col_date(format = &quot;%m/%d/%Y&quot;), 
+        End = col_date(format = &quot;%m/%d/%Y&quot;))) %&gt;% 
+  clean_names() %&gt;% 
+  mutate(stay_at_home=if_else(length==0,FALSE,TRUE))
+
+states=right_join(states,stay_at_home_orders)
+
+states %&gt;% 
+ ggplot( aes(x=length,y=excess_not_covid_r, size=population))+
+   labs(x = &quot;Length of stay-at-home order (days)&quot;, y = &quot;Excess COVID-19 deaths not attributed\n to COVID-19 per 100,000 residents&quot;) +
+  geom_point(alpha=0.5)+
+  geom_smooth(, weight=&quot;population&quot;)+
+ theme(legend.position = &quot;none&quot;) +
+  scale_y_continuous(limits=c(0, 100))</code></pre>
+<p><img src="preventions_files/figure-html/unnamed-chunk-1-1.png" width="100%" /></p>
+<pre class="r"><code>mod3 = lm.cluster(excess_not_covid_r ~ length, data = states, cluster=&quot;state&quot;)
+
+mod3_sum = 
+  summary(mod3)%&gt;% 
+  as.tibble()
+
+mod3_CI = 
+  confint(mod3)%&gt;% 
+  as.tibble()
+
+
+mod3_df = 
+  bind_cols(mod3_sum, mod3_CI)%&gt;% 
+  mutate(
+    Variables = c(&quot;Intercept&quot;, &quot;Length of stay-at-home order&quot;)
+  ) %&gt;% 
+  relocate(Variables) %&gt;% 
+  kbl(caption=&quot;Linear model output assessing association of length of lockdown and non-COVID-19 excess deaths&quot;, digits = 2) %&gt;%
+  kable_classic()
+
+mod3_df</code></pre>
+</div>
+<div id="have-prevention-methods-help-mitigate-excess-covid-19-deaths" class="section level3">
+<h3>Have prevention methods help mitigate excess COVID-19 deaths?</h3>
 </div>
 
 <!DOCTYPE html>
@@ -417,7 +438,7 @@ div.tocify {
  
 <hr />
 <p style="text-align: center;">
-Matthew Angulo (am5195), Chong Li (cl4045), Alexander Melamed (am5195), Diana Sanchez (des2190)
+Matthew Angulo (ma3997), Chong Li (cl4045), Alexander Melamed (am5195), Diana Sanchez (des2190)
 </p>
 
 <p style="text-align: center;">
@@ -427,8 +448,6 @@ Data Science Fall 2020
 <p> </p>
 
 
-</div>
-</div>
 
 </div>
 
@@ -436,7 +455,7 @@ Data Science Fall 2020
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -460,33 +479,12 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
-
 <script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
 });
 </script>
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

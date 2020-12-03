@@ -293,22 +293,13 @@ $(document).ready(function () {
   <a href="about.html">Introduction</a>
 </li>
 <li>
-  <a href="dashboard.html">Analyses</a>
+  <a href="casulties.html">COVID Impacts</a>
+</li>
+<li>
+  <a href="preventions.html">Prevention Outcomes</a>
 </li>
 <li>
   <a href="final_report.html">Conclusion</a>
-</li>
-<li>
-  <a href="https://github.com/dianaesai/p8105_final_project.git">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0">
-    <span class="fa fa-youtube fa-lg"></span>
-     
-  </a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -330,6 +321,18 @@ $(document).ready(function () {
       <a href="mailto:&lt;am5195@cumc.columbia.edu&gt;">Alexander Melamed</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="https://github.com/dianaesai/p8105_final_project.git">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0">
+    <span class="fa fa-youtube fa-lg"></span>
+     
+  </a>
 </li>
       </ul>
     </div><!--/.nav-collapse -->
@@ -583,7 +586,7 @@ excess_deaths_not_from_covid_rate
 </tbody>
 </table>
 <p>This state-level dataset is used to visually explore the relationships between state-level COVID-19 death rates, excess mortality rates, and rates of excess non-COVID-19 mortality per 100,000 residents.</p>
-<pre class="r"><code>panel1 = states %&gt;% 
+<pre class="r"><code>panel4 = states %&gt;% 
  ggplot( aes(x=covid_death_r,y=excess_not_covid_r, size=population))+
    labs(x = &quot;COVID-19 deaths \n per 100,000 residents&quot;, y = &quot;Excess COVID-19 deaths not attributed\n to COVID-19 per 100,000 residents&quot;) +
    geom_point(alpha=0.5)+
@@ -592,7 +595,7 @@ excess_deaths_not_from_covid_rate
   scale_y_continuous(limits=c(0, 300))
 
 
-panel2 = states %&gt;% 
+panel5 = states %&gt;% 
  ggplot( aes(x=covid_death_r,y=excess_death_r, size=population))+
    labs(x = &quot;COVID-19 deaths \n per 100,000 residents&quot;, y = &quot;Excess deaths \n per 100,000 residents&quot;) +
    geom_point(alpha=0.5)+
@@ -600,13 +603,13 @@ panel2 = states %&gt;%
  theme(legend.position = &quot;none&quot;) +
   scale_y_continuous(limits=c(0, 300))
 
-panel2 + panel1</code></pre>
-<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_smooth).</code></pre>
-<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
+panel4 + panel5</code></pre>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <pre><code>## Warning: Removed 3 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 3 rows containing missing values (geom_point).</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_smooth).</code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
 <p><img src="analysis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>We explore whether the duration of stay at home orders are associated with excess non-covid related mortality. We import and link data on the lengths of each states stay-at-home-orders based on information aggregated from by the National Academy of State Health Policy (<a href="https://www.nashp.org/governors-prioritize-health-for-all/" class="uri">https://www.nashp.org/governors-prioritize-health-for-all/</a>). We join these data to our state level data set plot stay-at-home order duratoin vs non-covid-19 excess mortality rates.</p>
 <pre class="r"><code>stay_at_home_orders &lt;- read_csv(&quot;data/stay_at_home_orders_final.csv&quot;, 
@@ -700,7 +703,7 @@ summary(mod4)</code></pre>
  
 <hr />
 <p style="text-align: center;">
-Matthew Angulo (am5195), Chong Li (cl4045), Alexander Melamed (am5195), Diana Sanchez (des2190)
+Matthew Angulo (ma3997), Chong Li (cl4045), Alexander Melamed (am5195), Diana Sanchez (des2190)
 </p>
 
 <p style="text-align: center;">
