@@ -7,7 +7,7 @@ output:
 
 ### Exploring Real Impacts Of COVID-19 In Terms Of Excess Deaths Numbers.
 
-**Chong Li (cl4045), Matthew Angulo (am5195), Alexander Melamed (am5195), Diana Sanchez (des2190)**
+**Chong Li (cl4045), Matthew Angulo (ma3997), Alexander Melamed (am5195), Diana Sanchez (des2190)**
 
 <img src="images/covid.JPG" style="width:100%">
 
