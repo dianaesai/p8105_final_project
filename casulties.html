@@ -11,7 +11,7 @@
 
 
 
-<title>Introduction</title>
+<title>Casulties In Excess Deaths</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,6 +23,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
@@ -250,6 +251,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -401,50 +405,39 @@ div.tocify {
 
 <div class="fluid-row" id="header">
 
-
-
-<h1 class="title toc-ignore">Introduction</h1>
-
-</div>
-
-
-<p><br></p>
-<p><img src="images/covid_protest.jpeg" style="width:100%"> <em>Liberate Michigan" protests against governor Gretchen Whitmer’s Lockdown orders.</em> <br></p>
-<div id="motivation" class="section level3">
-<h3><strong>Motivation</strong></h3>
-<p>Since the start of COVID-19, a range of conspiracy theories have spun up in the United States about the scope and severity of the pandemic. The <a href="https://apnews.com/article/virus-outbreak-donald-trump-ap-fact-check-anthony-fauci-flu-fe474f0c15f76adf324791a2cfc1e2bb">President</a> has repeatedly compared coronavirus to the flu, claiming that the lethality of the two diseases are comparable. While public health professionals can quickly dismiss these statements as nonsensical absurdities, they are actually not unusual at all amongst the general public. As the daily Covid Death toll reaching new heights in the United States, 30% of Americans are <a href="https://projects.fivethirtyeight.com/coronavirus-polls/">not concerned</a> with the virus.</p>
-<p>Some COVID skeptics often raises the point that they believe the COVID-19’s death toll is inflated by hospital reporting other diseases under the name of COVID-19 - therefore, COVID-19 has not increased total mortality rate dramatically. The following video of Donald Trump and Elon Musk are representative of this line of thinking.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=xR4j3WttbdU&amp;ab_channel=EvanCarmichael" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=UK1OtCuGRbk&amp;ab_channel=FRONTLINEPBS%7COfficial" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<p>Furthermore, as the pandemic had worn on, the general public has grown increasingly skeptical of the preventive measures that public health officials are promoting Throughout the developed world, the idea that <a href="https://www.radiologybusiness.com/topics/policy/scott-atlas-radiologist-white-house-covid-19-fauci">“lockdowns kill people”</a> has been picked up by an increasingly large portions of pundits, activists and elected officials alike. Opponents of lockdowns claim that these restrictions have significant negative impacts on other aspects of public health, and those consequences vastly outweigh the the supposed benefits that these preventive measures are intended for.</p>
-<p><br></p>
-</div>
-<div id="exploratory-analyses" class="section level3">
-<h3><strong>Exploratory Analyses</strong></h3>
-<p>We believe that the excess deaths data from Center of Disease Control, in comparison to Covid-19 deaths/cases, provides a intuitive and holistic assessment of the impact of pandemic. The excess deaths data is a self-explanatory variable that the general public, even one without any form of public health training, can easily understand. Our analysis seeks to answer the following questions that would convince the COVID-19 “skeptics” and “truthers” on the severity of the pandemic as well as the effectiveness/necessity of public preventive measures.</p>
-<ul>
-<li>What are the excess deaths data of 2020 look like? Is excess deaths data of 2020 significantly different from recent years?<br />
-</li>
-<li>Is COVID-19 responsible for the increase (or lackthereof) in excess deaths. If not, what are the other causes?<br />
-</li>
-<li>Are the pandemic prevention measures such as travel restrictions and lockdowns contributing associated with significant negative public health consequences?<br />
-</li>
-<li>How effective are those pandemic prevention measures in reducing the casulties caused by COVID-19?</li>
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
 </ul>
-<p><br></p>
 </div>
-<div id="data" class="section level3">
-<h3><strong>Data</strong></h3>
-<p><strong><em>Excess Deaths Associated with COVID-19</em></strong> is from the <a href="https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst/">Centers for Disease Control and Prevention</a>. Excess Deaths Data is free public data published by Centers for Disease Control and Prevention. Estimates of excess deaths presented in this webpage were calculated using Farrington surveillance algorithms (1). For each jurisdiction, a model is used to generate a set of expected counts, and the upper bound of the 95% Confidence Intervals (95% CI) of these expected counts is used as a threshold to estimate excess deaths. Observed counts are compared to these upper bound estimates to determine whether a significant increase in deaths has occurred.</p>
-<p><strong><em>Provisional COVID-19 Death Counts by Week Ending Date and State</em></strong> was obtained from the <a href="https://data.cdc.gov/NCHS/Provisional-COVID-19-Death-Counts-by-Week-Ending-D/r8kw-7aab">Centers for Disease Control and Prevention</a>. Deaths involving coronavirus disease 2019 (COVID-19), pneumonia, and influenza reported to NCHS by week ending date and by state.</p>
-<p><strong><em>COVID-19 Prevention Methods by States</em></strong> was obtained from the <a href="https://www.nashp.org/governors-prioritize-health-for-all/">National Academy of State Health Policy</a>. We import and link data on the lengths of each states stay-at-home-orders, mask mandate as well as travel restrictions based on information aggregated from by the National Academy of State Health Policy.</p>
-<p><br></p>
+
+
+
+<h1 class="title toc-ignore">Casulties In Excess Deaths</h1>
+
 </div>
-<div id="screencast" class="section level3">
-<h3><strong>Screencast</strong></h3>
-<p>The screencast below clearly shows the background, moethod, result and conclusion of our project.</p>
+
+
+<div id="r-markdown" class="section level2">
+<h2>R Markdown</h2>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
+<pre class="r"><code>summary(cars)</code></pre>
+<pre><code>##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00</code></pre>
+</div>
+<div id="including-plots" class="section level2">
+<h2>Including Plots</h2>
+<p>You can also embed plots, for example:</p>
+<p><img src="casulties_files/figure-html/pressure-1.png" width="100%" /></p>
+<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
 </div>
 
 <!DOCTYPE html>
@@ -495,6 +488,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 <script>
 $(document).ready(function ()  {
