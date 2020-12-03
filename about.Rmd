@@ -9,7 +9,7 @@ output:
 <br>
 
 <img src="images/covid_protest.jpeg" style="width:100%">
-*Liberate Michigan" protests against Governor Gretchen Whitmer's lockdown orders.*
+*"Liberate Michigan" protests against Governor Gretchen Whitmer's lockdown orders.*
 <br>
 
 ### **Motivation**

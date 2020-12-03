@@ -6,8 +6,8 @@ navbar:
   right:
     - text: "Introduction"
       href: about.html
-    - text: "Analyses"
-      href: dashboard.html
+    - text: "COVID Impacts"
+      href: casulties.html
     - text: "Conclusion"
       href: final_report.html
     - icon: fa-github fa-lg

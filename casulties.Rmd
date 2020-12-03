@@ -1,35 +1,127 @@
 ---
-title: "Casulties In Excess Deaths"
+title: "COVID-19 Impacts"
 output: 
   html_document: 
     code_folding: hide
-    toc: true
-    toc_float: true
 ---
-
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, fig.width=8, fig.height=6, out.width="100%")
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message=FALSE,fig.width=8, fig.height=6, out.width="100%")
 library(tidyverse)
 library(plotly)
 library(readxl)
+library(dplyr)
+library(lubridate)
+library(patchwork)
+library(scales)
+library(moderndive)
+library(stats)
+library(skimr)
+library(kableExtra)
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+theme_set(theme_minimal() + theme(legend.position = "bottom",plot.title = element_text(face = "bold")))
+
+options(scipen=10)
+
 ```
+<br>  
 
-## R Markdown
+### Are there actually more deaths reported in 2020 than past years?
+```{r}
+excess_deaths <- read.csv("data/Excess_Deaths_Associated_with_COVID-19.csv") %>% 
+  janitor::clean_names() %>% 
+  rename(end_week=week_ending_date) %>%
+  filter(type=="Predicted (weighted)"&outcome=="All causes")
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+recorded_deaths = excess_deaths %>%
+  separate(col=end_week,into=c("year","month","day"),sep="-") %>%
+  select(c(year,month,state,observed_number)) %>%
+  group_by(year,month,state)%>%
+  summarise_each(funs(sum))%>%
+  filter(state=="United States") 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+recorded_deaths = recorded_deaths[-c(47),]
 
-```{r cars}
-summary(cars)
+
+recorded_deaths_graph = recorded_deaths %>%
+  ggplot(aes(x=month,y=observed_number,color=year)) + 
+  geom_point() + geom_line(aes(group=year)) + 
+  labs(
+    title = "United States Total Recorded Deaths By Months",
+    x = "Month",
+    y = "Recorded Deaths"
+  )
+
+ggplotly(recorded_deaths_graph)
 ```
+  
+Yes, the following graph shows unequivocally that deaths reported since March 2020 has exceeded the past three years by a substantial margin. In the month of May, the recorded deaths number of 2020 is almost 50% higher than the average from 2017 to 2019.  
 
-## Including Plots
 
-You can also embed plots, for example:
+### Maybe reported deaths number was going to peak in 2020 due to demographic/environmental or other external variables anyways. Is the reported death spike not expected?
+```{r}
+excess_deaths_2 = excess_deaths %>% 
+  separate(col=end_week,into=c("year","month","day"),sep="-") %>%
+  mutate(death_diff = observed_number - upper_bound_threshold) %>%
+  filter(state=="United States") %>%
+  select(c(year,month,day,state,observed_number,upper_bound_threshold,death_diff)) %>%
+  mutate(date = str_c(year,month,day,sep="-")) %>%
+  mutate(date = as.Date(date)) %>%
+  mutate(death_diff_percent = death_diff/upper_bound_threshold) %>%
+  relocate(date,.before=state) %>%
+  select(-c(month,day))
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+excess_deaths_2 = excess_deaths_2[-c(201),]
+
+excess_deaths_graph = excess_deaths_2 %>%
+  ggplot(aes(x=date,y=death_diff,color=year)) + 
+  geom_point() + 
+  labs(
+    title = "Weekly Excess Deaths From All Causes",
+    x = "Month",
+    y = "Recorded Deaths - Upper Bound Projected Deaths "
+  ) +
+  scale_x_date(date_breaks = "months" , date_labels = "%b-%y") +
+  theme(axis.text.x = element_text(angle = 90))
+
+ggplotly(excess_deaths_graph)
 ```
+  
+No, the spike in reported deaeth in 2020 is not expected at all according to the CDC weekly deaths projections. Over the past four years, aside from the winter of 2017 when recorded deaths number briefly eclipsed the upperbound deaths projections, recorded deaths number has been consistently at a lower level than the upperbound deaths projections. In 2020, the excess deaths number shot way past the projection as well as historical averages.  
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+### Okay, but how do I know this spike in reported deaths is directly correlated with COVID-19 mortalities?
+
+```{r}
+covid_deaths <- read.csv("data/Provisional_COVID-19_Death_Counts_by_Week_Ending_Date_and_State.csv") %>% 
+  janitor::clean_names() %>%
+  mutate(end_week=mdy(end_week))%>%
+  select(end_week,state,covid_19_deaths,total_deaths,percent_of_expected_deaths,pneumonia_deaths, pneumonia_and_covid_19_deaths, influenza_deaths, pneumonia_influenza_or_covid_19_deaths) 
+
+excess_deaths = excess_deaths %>%
+  mutate(end_week=as.Date(end_week))
+
+merged_data = inner_join(covid_deaths,excess_deaths) %>%
+  filter(state=="United States" & end_week < as.Date("2020-11-1"))
+
+covid_v_excess = merged_data %>% 
+ ggplot(aes(x=covid_19_deaths,y=excess_higher_estimate))+
+   labs(x = "Weekly Reported COVID-19 deaths ", 
+        y = "Weekly Reported Excess deaths",
+        title = "Weekly Reported COVID-19 Deaths vs. Weekly Excess Deaths"
+       ) +
+   geom_point(alpha=0.5)+
+  geom_smooth()+
+  theme(legend.position = "none")
+
+ ggplotly(covid_v_excess)
+
+```
+  
+By mapping reported COVID-19 deaths against weekly excess deaths, there is a clear, significant linear relationship. In other words, the change of weekly excess deaths can almost be perfectly explained by change in COVID-19 deaths. Therefore, we can conclude that COVID-19 is indeed the culprit of the increased excess deaths of 2020.
+
+

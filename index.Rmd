@@ -14,8 +14,8 @@ output:
 #### Introduction
 Our [motivations and purposes](about.html) can be found here.
 
-#### COVID-19 Casulties  
-Our [Analysis](final_report.html) on COVID-19 casulties can be found here
+#### COVID-19 Impacts  
+Our [Analysis](casulties.html) on the impacts of COVID-19 can be found here
 
 #### COVID-19 Preventions  
 Our [Analysis](final_report.html) on COVID-19 prevention outcomes can be found here
