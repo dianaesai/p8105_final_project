@@ -17,6 +17,7 @@ library(moderndive)
 library(stats)
 library(skimr)
 library(kableExtra)
+library(usmap)
 
 options(
   ggplot2.continuous.colour = "viridis",
@@ -55,7 +56,7 @@ recorded_deaths_graph = recorded_deaths %>%
     title = "United States Total Recorded Deaths By Months",
     x = "Month",
     y = "Recorded Deaths"
-  )
+  ) 
 
 ggplotly(recorded_deaths_graph)
 ```
@@ -124,4 +125,28 @@ covid_v_excess = merged_data %>%
   
 By mapping reported COVID-19 deaths against weekly excess deaths, there is a clear, significant linear relationship. In other words, the change of weekly excess deaths can almost be perfectly explained by change in COVID-19 deaths. Therefore, we can conclude that COVID-19 is indeed the culprit of the increased excess deaths of 2020.
 
+### What States have the highest excess deaths per 100,000 people?
+```{r}
 
+state_pop = read_csv("data/State_Populations.csv") %>% 
+  janitor::clean_names()
+
+excess_deaths_3 = excess_deaths %>%
+  filter(state != "United States" & state != "New York City" & end_week < as.Date("2020-3-1")) %>%
+  select(state,total_excess_higher_estimate_in_2020) %>%
+  group_by(state)%>%
+  summarise(
+    excess_estimate = mean(total_excess_higher_estimate_in_2020)
+  )
+
+
+us_map = inner_join(excess_deaths_3,state_pop) %>%
+  mutate(excess_death_per = excess_estimate/population*100000)
+
+map_graph = plot_usmap(data = us_map, values = "excess_death_per", color = "black") +   
+  scale_fill_continuous(name = "Projected 2020 Excess Deaths Per 100,000", label = scales::comma) + 
+  theme(legend.position = "right")
+
+ ggplotly(map_graph)
+
+```

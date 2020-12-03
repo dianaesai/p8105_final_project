@@ -10,10 +10,6 @@ navbar:
       href: casulties.html
     - text: "Conclusion"
       href: final_report.html
-    - icon: fa-github fa-lg
-      href: https://github.com/dianaesai/p8105_final_project.git
-    - icon: fa-youtube fa-lg
-      href: https://www.youtube.com/watch?v=oHg5SJYRHA0
     - text: "Contact Us"
       menu:
       - text: "Diana Sanchez"
@@ -24,6 +20,11 @@ navbar:
         href: mailto:<ma3997@cumc.columbia.edu>
       - text: "Alexander Melamed"
         href: mailto:<am5195@cumc.columbia.edu>
+    - icon: fa-github fa-lg
+      href: https://github.com/dianaesai/p8105_final_project.git
+    - icon: fa-youtube fa-lg
+      href: https://www.youtube.com/watch?v=oHg5SJYRHA0
+    
 
 output:
   html_document:
