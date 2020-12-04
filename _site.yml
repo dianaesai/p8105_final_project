@@ -10,6 +10,8 @@ navbar:
       href: casulties.html
     - text: "Prevention Outcomes"
       href: preventions.html
+    - text: "Dashboard"
+      href: dashboard.html
     - text: "Conclusion"
       href: final_report.html
     - text: "Contact Us"
