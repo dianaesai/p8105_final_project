@@ -11,7 +11,7 @@
 
 
 
-<title>Introduction</title>
+<title>Prevention Outcomes</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,10 +19,8 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
@@ -261,70 +259,10 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
-
-
-
 <style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
+.code-folding-btn { margin-bottom: 4px; }
 </style>
+
 
 
 
@@ -334,16 +272,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -415,50 +343,94 @@ div.tocify {
 
 <div class="fluid-row" id="header">
 
-
-
-<h1 class="title toc-ignore">Introduction</h1>
-
-</div>
-
-
-<p><br></p>
-<p><img src="images/covid_protest.jpeg" style="width:100%"> <em>“Liberate Michigan” protests against Governor Gretchen Whitmer’s lockdown orders.</em> <br></p>
-<div id="motivation" class="section level3">
-<h3><strong>Motivation</strong></h3>
-<p>Since the start of COVID-19, a range of conspiracy theories have spun up in the United States about the scope and severity of the pandemic. The <a href="https://apnews.com/article/virus-outbreak-donald-trump-ap-fact-check-anthony-fauci-flu-fe474f0c15f76adf324791a2cfc1e2bb">President</a> has repeatedly compared coronavirus to the flu, claiming that the lethality of the two diseases are comparable. While public health professionals can quickly dismiss these statements as nonsensical absurdities, they are actually not unusual at all amongst the general public. As the daily Covid Death toll reaching new heights in the United States, 30% of Americans are <a href="https://projects.fivethirtyeight.com/coronavirus-polls/">not concerned</a> with the virus.</p>
-<p>Some COVID skeptics often raises the point that they believe the COVID-19’s death toll is inflated by hospital reporting other diseases under the name of COVID-19 - therefore, COVID-19 has not increased total mortality rate dramatically. The following video of Donald Trump and Elon Musk are representative of this line of thinking.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=xR4j3WttbdU&amp;ab_channel=EvanCarmichael" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=UK1OtCuGRbk&amp;ab_channel=FRONTLINEPBS%7COfficial" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<p>Furthermore, as the pandemic had worn on, the general public has grown increasingly skeptical of the preventive measures that public health officials are promoting throughout the developed world, the idea that <a href="https://www.radiologybusiness.com/topics/policy/scott-atlas-radiologist-white-house-covid-19-fauci">“lockdowns kill people”</a> has been picked up by an increasingly large portions of pundits, activists and elected officials alike. Opponents of lockdowns claim that these restrictions have significant negative impacts on other aspects of public health, and those consequences vastly outweigh the the supposed benefits that these preventive measures are intended for.<br />
-<br></p>
-</div>
-<div id="exploratory-analyses" class="section level3">
-<h3><strong>Exploratory Analyses</strong></h3>
-<p>We believe that the excess deaths data from Center of Disease Control, in comparison to COVID-19 deaths/cases, provides a intuitive and holistic assessment of the impact of pandemic. The excess deaths data is a self-explanatory variable that the general public, even one without any form of public health training, can easily understand. Our analysis seeks to answer the following questions that would convince the COVID-19 “skeptics” and “truthers” on the severity of the pandemic as well as the effectiveness/necessity of public preventive measures.</p>
-<ul>
-<li>What do the excess deaths data of 2020 look like? Is excess deaths data of 2020 significantly different from recent years?<br />
-</li>
-<li>Is COVID-19 responsible for the increase (or lack thereof) in excess deaths. If not, what are the other causes?<br />
-</li>
-<li>Are the pandemic prevention measures such as travel restrictions and lockdowns contributing associated with significant negative public health consequences?<br />
-</li>
-<li>How effective are those pandemic prevention measures in reducing the casualties caused by COVID-19?</li>
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
 </ul>
-<p><br></p>
 </div>
-<div id="data" class="section level3">
-<h3><strong>Data</strong></h3>
-<p><strong><em>Excess Deaths Associated with COVID-19</em></strong> is from the <a href="https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst/">Centers for Disease Control and Prevention</a>. Excess deaths data is free public data published by Centers for Disease Control and Prevention. Estimates of excess deaths presented in this webpage were calculated using Farrington surveillance algorithms (1). For each jurisdiction, a model is used to generate a set of expected counts, and the upper bound of the 95% Confidence Intervals (95% CI) of these expected counts is used as a threshold to estimate excess deaths. Observed counts are compared to these upper bound estimates to determine whether a significant increase in deaths has occurred.</p>
-<p><strong><em>Provisional COVID-19 Death Counts by Week Ending Date and State</em></strong> was obtained from the <a href="https://data.cdc.gov/NCHS/Provisional-COVID-19-Death-Counts-by-Week-Ending-D/r8kw-7aab">Centers for Disease Control and Prevention</a>. Deaths involving coronavirus disease 2019 (COVID-19), pneumonia, and influenza reported to NCHS by week ending date and by state.</p>
-<p><strong><em>COVID-19 Prevention Methods by States</em></strong> was obtained from the <a href="https://www.nashp.org/governors-prioritize-health-for-all/">National Academy of State Health Policy</a>. We import and link data on the lengths of each states stay-at-home-orders, mask mandate as well as travel restrictions based on information aggregated from by the National Academy of State Health Policy.</p>
-<p><br></p>
+
+
+
+<h1 class="title toc-ignore">Prevention Outcomes</h1>
+
 </div>
-<div id="screencast" class="section level3">
-<h3><strong>Screencast</strong></h3>
-<p>The screencast below clearly shows the background, method, result and conclusion of our project.</p>
+
+
+<div id="are-lockdowns-responsible-for-additional-excess-deaths-that-are-not-related-to-covid-19" class="section level3">
+<h3>Are lockdowns responsible for additional excess deaths that are not related to COVID-19?</h3>
+<pre class="r"><code>excess_deaths &lt;- read_csv(&quot;data/Excess_Deaths_Associated_with_COVID-19.csv&quot;) %&gt;% 
+  clean_names() %&gt;% 
+  rename(end_week=week_ending_date) %&gt;% 
+  filter(type==&quot;Predicted (weighted)&quot;&amp;outcome==&quot;All causes&quot;) 
+
+covid_deaths &lt;- read_csv(&quot;data/Provisional_COVID-19_Death_Counts_by_Week_Ending_Date_and_State.csv&quot;) %&gt;% 
+  clean_names() %&gt;%
+  mutate(end_week=mdy(end_week))%&gt;%
+  select(end_week,state,covid_19_deaths,total_deaths,percent_of_expected_deaths,pneumonia_deaths, pneumonia_and_covid_19_deaths, influenza_deaths, pneumonia_influenza_or_covid_19_deaths) 
+
+merged_data &lt;- inner_join(covid_deaths,excess_deaths) %&gt;% 
+  mutate(excess_non_covid=excess_higher_estimate-covid_19_deaths)
+
+states= merged_data %&gt;% 
+  group_by(state) %&gt;% 
+  filter(end_week &lt; as.Date(&quot;2020-11-1&quot;) &amp; state !=&quot;United States&quot; &amp; state!=&quot;New York City&quot;) %&gt;% 
+  filter(!is.na(covid_19_deaths)) %&gt;% 
+  filter(!is.na(excess_higher_estimate)) %&gt;% 
+  summarise(
+    excess_deaths=sum(excess_higher_estimate),
+    covid_deaths=sum(covid_19_deaths),
+    excess_not_covid=sum(excess_higher_estimate)-sum(covid_19_deaths)) 
+
+state_pop &lt;- read_csv(&quot;data/State_Populations.csv&quot;) %&gt;% 
+  clean_names()
+
+states=right_join(states,state_pop) %&gt;% 
+  mutate(excess_death_r=excess_deaths/population*100000) %&gt;% 
+  mutate(covid_death_r=covid_deaths/population*100000) %&gt;% 
+  mutate(excess_not_covid_r=excess_not_covid/population*100000)
+
+stay_at_home_orders &lt;- read_csv(&quot;data/stay_at_home_orders_final.csv&quot;, 
+    col_types = cols(Start = col_date(format = &quot;%m/%d/%Y&quot;), 
+        End = col_date(format = &quot;%m/%d/%Y&quot;))) %&gt;% 
+  clean_names() %&gt;% 
+  mutate(stay_at_home=if_else(length==0,FALSE,TRUE))
+
+states=right_join(states,stay_at_home_orders)
+
+states %&gt;% 
+ ggplot( aes(x=length,y=excess_not_covid_r, size=population))+
+   labs(x = &quot;Length of stay-at-home order (days)&quot;, y = &quot;Excess COVID-19 deaths not attributed\n to COVID-19 per 100,000 residents&quot;) +
+  geom_point(alpha=0.5)+
+  geom_smooth(, weight=&quot;population&quot;)+
+ theme(legend.position = &quot;none&quot;) +
+  scale_y_continuous(limits=c(0, 100))</code></pre>
+<p><img src="preventions_files/figure-html/unnamed-chunk-1-1.png" width="100%" /></p>
+<pre class="r"><code>mod3 = lm.cluster(excess_not_covid_r ~ length, data = states, cluster=&quot;state&quot;)
+
+mod3_sum = 
+  summary(mod3)%&gt;% 
+  as.tibble()
+
+mod3_CI = 
+  confint(mod3)%&gt;% 
+  as.tibble()
+
+
+mod3_df = 
+  bind_cols(mod3_sum, mod3_CI)%&gt;% 
+  mutate(
+    Variables = c(&quot;Intercept&quot;, &quot;Length of stay-at-home order&quot;)
+  ) %&gt;% 
+  relocate(Variables) %&gt;% 
+  kbl(caption=&quot;Linear model output assessing association of length of lockdown and non-COVID-19 excess deaths&quot;, digits = 2) %&gt;%
+  kable_classic()
+
+mod3_df</code></pre>
+</div>
+<div id="have-prevention-methods-help-mitigate-excess-covid-19-deaths" class="section level3">
+<h3>Have prevention methods help mitigate excess COVID-19 deaths?</h3>
 </div>
 
 <!DOCTYPE html>
@@ -476,8 +448,6 @@ Data Science Fall 2020
 <p> </p>
 
 
-</div>
-</div>
 
 </div>
 
@@ -509,33 +479,12 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
-
 <script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
 });
 </script>
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

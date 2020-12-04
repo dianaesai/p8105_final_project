@@ -8,6 +8,8 @@ navbar:
       href: about.html
     - text: "COVID Impacts"
       href: casulties.html
+    - text: "Prevention Outcomes"
+      href: preventions.html
     - text: "Conclusion"
       href: final_report.html
     - text: "Contact Us"

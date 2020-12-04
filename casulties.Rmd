@@ -34,7 +34,7 @@ options(scipen=10)
 
 ### Are there actually more deaths reported in 2020 than past years?
 ```{r}
-excess_deaths <- read.csv("data/Excess_Deaths_Associated_with_COVID-19.csv") %>% 
+excess_deaths <- read_csv("data/Excess_Deaths_Associated_with_COVID-19.csv") %>% 
   janitor::clean_names() %>% 
   rename(end_week=week_ending_date) %>%
   filter(type=="Predicted (weighted)"&outcome=="All causes")

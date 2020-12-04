@@ -26,12 +26,12 @@ Furthermore, as the pandemic had  worn on, the general public has grown increasi
 <br>
 
 ### **Exploratory Analyses**
-We believe that the excess deaths data from Center of Disease Control, in comparison to Covid-19 deaths/cases, provides a intuitive and holistic assessment of the impact of pandemic. The excess deaths data is a self-explanatory variable that the general public, even one without any form of public health training, can easily understand. Our analysis seeks to answer the following questions that would convince the COVID-19 "skeptics" and "truthers" on the severity of the pandemic as well as the effectiveness/necessity of public preventive measures.  
+We believe that the excess deaths data from Center of Disease Control, in comparison to COVID-19 deaths/cases, provides a intuitive and holistic assessment of the impact of pandemic. The excess deaths data is a self-explanatory variable that the general public, even one without any form of public health training, can easily understand. Our analysis seeks to answer the following questions that would convince the COVID-19 "skeptics" and "truthers" on the severity of the pandemic as well as the effectiveness/necessity of public preventive measures.  
 
-* What are the excess deaths data of 2020 look like? Is excess deaths data of 2020 significantly different from recent years?  
+* What do the excess deaths data of 2020 look like? Is excess deaths data of 2020 significantly different from recent years?  
 * Is COVID-19 responsible for the increase (or lack thereof) in excess deaths. If not, what are the other causes?  
 * Are the pandemic prevention measures such as travel restrictions and lockdowns contributing associated with significant negative public health consequences?  
-* How effective are those pandemic prevention measures in reducing the casulties caused by COVID-19?  
+* How effective are those pandemic prevention measures in reducing the casualties caused by COVID-19?  
 
 <br>
 
