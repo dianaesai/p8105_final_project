@@ -19,14 +19,6 @@ library(skimr)
 library(kableExtra)
 library(usmap)
 
-options(
-  ggplot2.continuous.colour = "viridis",
-  ggplot2.continuous.fill = "viridis"
-)
-scale_colour_discrete = scale_colour_viridis_d
-scale_fill_discrete = scale_fill_viridis_d
-theme_set(theme_minimal() + theme(legend.position = "bottom",plot.title = element_text(face = "bold")))
-
 options(scipen=10)
 
 ```
@@ -144,7 +136,8 @@ us_map = inner_join(excess_deaths_3,state_pop) %>%
   mutate(excess_death_per = excess_estimate/population*100000)
 
 map_graph = plot_usmap(data = us_map, values = "excess_death_per", color = "black") +   
-  scale_fill_continuous(name = "Projected 2020 Excess Deaths Per 100,000", label = scales::comma) + 
+  scale_fill_continuous(
+    low = "white", high = "red", name = "Projected 2020 Excess Deaths Per 100,000", label = scales::comma) + 
   theme(legend.position = "right")
 
  ggplotly(map_graph)
