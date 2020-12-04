@@ -1,0 +1,433 @@
+Data as of,State,Place of Death,Start week,End Week,COVID19 Deaths,Total Deaths,Pneumonia Deaths,Pneumonia and COVID19 Deaths,Influenza Deaths,"Pneumonia, Influenza, or COVID19 Deaths",Footnote
+12/2/2020,United States,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,160790,773156,179028,90937,4156,252886,
+12/2/2020,United States,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,8467,156770,7920,2731,248,13894,
+12/2/2020,United States,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,230,7515,164,63,13,344,
+12/2/2020,United States,Decedent's Home,2/1/2020,11/28/2020,14082,894696,17130,3080,1473,28769,
+12/2/2020,United States,Hospice Facility,2/1/2020,11/28/2020,7426,163594,11881,3502,323,16120,
+12/2/2020,United States,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,53872,455363,28910,12423,538,70880,
+12/2/2020,United States,Other,2/1/2020,11/28/2020,4568,180348,4020,1169,100,7503,
+12/2/2020,United States,Place of Death Unknown,2/1/2020,11/28/2020,135,3772,95,38,1,192,
+12/2/2020,Alabama,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,3325,15063,3221,1298,73,5317,
+12/2/2020,Alabama,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,133,3652,79,15,,206,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Alabama,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,70,0,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Alabama,Decedent's Home,2/1/2020,11/28/2020,232,19913,169,34,14,380,
+12/2/2020,Alabama,Hospice Facility,2/1/2020,11/28/2020,46,1861,138,20,,167,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Alabama,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,695,5903,232,79,,850,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Alabama,Other,2/1/2020,11/28/2020,20,2751,28,,,47,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Alabama,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Alaska,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,76,1152,128,46,,163,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Alaska,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,,239,,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Alaska,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,,0,0,0,0,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Alaska,Decedent's Home,2/1/2020,11/28/2020,11,1549,25,,0,31,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Alaska,Hospice Facility,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Alaska,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,,372,11,0,,17,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Alaska,Other,2/1/2020,11/28/2020,,355,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Alaska,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Arizona,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,3786,14898,4222,2535,82,5555,
+12/2/2020,Arizona,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,152,3104,141,51,,246,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Arizona,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,22,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Arizona,Decedent's Home,2/1/2020,11/28/2020,411,21321,598,147,12,874,
+12/2/2020,Arizona,Hospice Facility,2/1/2020,11/28/2020,394,5085,455,152,15,712,
+12/2/2020,Arizona,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,562,3543,351,203,,712,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Arizona,Other,2/1/2020,11/28/2020,465,12641,424,149,,741,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Arizona,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Arkansas,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,1433,8225,1845,789,51,2539,
+12/2/2020,Arkansas,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,93,2261,106,24,11,186,
+12/2/2020,Arkansas,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,78,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Arkansas,Decedent's Home,2/1/2020,11/28/2020,106,9928,183,26,13,275,
+12/2/2020,Arkansas,Hospice Facility,2/1/2020,11/28/2020,81,2762,225,50,,259,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Arkansas,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,707,4780,340,194,,856,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Arkansas,Other,2/1/2020,11/28/2020,30,1784,28,,0,53,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Arkansas,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,California,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,13842,75246,19439,8952,493,24820,
+12/2/2020,California,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,633,14498,871,241,22,1285,
+12/2/2020,California,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,100,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,California,Decedent's Home,2/1/2020,11/28/2020,1089,96619,1747,263,34,2607,
+12/2/2020,California,Hospice Facility,2/1/2020,11/28/2020,35,3416,125,16,,145,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,California,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,2450,32869,1968,757,24,3685,
+12/2/2020,California,Other,2/1/2020,11/28/2020,449,24267,446,105,,799,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,California,Place of Death Unknown,2/1/2020,11/28/2020,,,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Colorado,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,1380,8442,1740,893,45,2269,
+12/2/2020,Colorado,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,49,1491,77,25,,106,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Colorado,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,38,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Colorado,Decedent's Home,2/1/2020,11/28/2020,212,13569,344,58,23,521,
+12/2/2020,Colorado,Hospice Facility,2/1/2020,11/28/2020,47,2846,152,24,,179,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Colorado,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,979,8394,627,329,19,1294,
+12/2/2020,Colorado,Other,2/1/2020,11/28/2020,39,2400,56,11,0,84,
+12/2/2020,Colorado,Place of Death Unknown,2/1/2020,11/28/2020,0,12,0,0,0,0,
+12/2/2020,Connecticut,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,2334,9236,1520,744,54,3161,
+12/2/2020,Connecticut,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,131,1664,65,19,,179,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Connecticut,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,204,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Connecticut,Decedent's Home,2/1/2020,11/28/2020,134,7960,102,10,,230,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Connecticut,Hospice Facility,2/1/2020,11/28/2020,45,889,43,15,0,73,
+12/2/2020,Connecticut,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,1833,6395,418,205,12,2058,
+12/2/2020,Connecticut,Other,2/1/2020,11/28/2020,121,1587,23,,0,136,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Connecticut,Place of Death Unknown,2/1/2020,11/28/2020,0,85,,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Delaware,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,347,2012,424,196,,584,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Delaware,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,13,429,16,,,23,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Delaware,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,,0,0,0,0,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Delaware,Decedent's Home,2/1/2020,11/28/2020,34,3285,31,,,60,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Delaware,Hospice Facility,2/1/2020,11/28/2020,,773,18,,,23,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Delaware,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,256,1355,87,47,,297,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Delaware,Other,2/1/2020,11/28/2020,,518,,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Delaware,Place of Death Unknown,2/1/2020,11/28/2020,0,,0,0,0,0,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,District of Columbia,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,655,3024,905,630,,939,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,District of Columbia,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,32,362,33,29,0,36,
+12/2/2020,District of Columbia,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,District of Columbia,Decedent's Home,2/1/2020,11/28/2020,43,1419,51,34,0,60,
+12/2/2020,District of Columbia,Hospice Facility,2/1/2020,11/28/2020,26,204,25,21,0,30,
+12/2/2020,District of Columbia,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,60,479,70,56,0,74,
+12/2/2020,District of Columbia,Other,2/1/2020,11/28/2020,11,388,13,10,,15,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,District of Columbia,Place of Death Unknown,2/1/2020,11/28/2020,0,,0,0,0,0,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Florida,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,12348,55582,13809,7577,241,18797,
+12/2/2020,Florida,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,588,12424,537,219,10,916,
+12/2/2020,Florida,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,172,,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Florida,Decedent's Home,2/1/2020,11/28/2020,686,57964,1133,267,29,1581,
+12/2/2020,Florida,Hospice Facility,2/1/2020,11/28/2020,2293,34361,3167,1124,54,4388,
+12/2/2020,Florida,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,1113,17542,851,306,,1662,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Florida,Other,2/1/2020,11/28/2020,634,19249,752,269,,1123,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Florida,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Georgia,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,5347,23608,5339,3018,90,7754,
+12/2/2020,Georgia,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,346,7413,268,101,,521,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Georgia,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,17,719,16,,,30,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Georgia,Decedent's Home,2/1/2020,11/28/2020,382,26869,426,109,,706,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Georgia,Hospice Facility,2/1/2020,11/28/2020,345,5727,463,135,,680,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Georgia,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,1236,10981,617,310,,1546,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Georgia,Other,2/1/2020,11/28/2020,64,4764,56,17,,104,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Georgia,Place of Death Unknown,2/1/2020,11/28/2020,0,13,0,0,0,0,
+12/2/2020,Hawaii,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,219,2437,430,125,14,538,
+12/2/2020,Hawaii,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,11,730,37,,0,43,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Hawaii,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,387,,0,,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Hawaii,Decedent's Home,2/1/2020,11/28/2020,23,3696,85,,,103,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Hawaii,Hospice Facility,2/1/2020,11/28/2020,0,563,23,0,,24,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Hawaii,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,42,901,48,,,87,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Hawaii,Other,2/1/2020,11/28/2020,,1083,24,,,33,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Hawaii,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Idaho,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,447,2842,504,247,15,718,
+12/2/2020,Idaho,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,17,448,17,,,31,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Idaho,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,17,0,0,0,0,
+12/2/2020,Idaho,Decedent's Home,2/1/2020,11/28/2020,123,5530,119,38,,208,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Idaho,Hospice Facility,2/1/2020,11/28/2020,,510,25,,,30,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Idaho,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,305,3043,159,70,,397,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Idaho,Other,2/1/2020,11/28/2020,10,748,14,,,21,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Idaho,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Illinois,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,7274,30808,7813,4376,121,10827,
+12/2/2020,Illinois,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,408,7342,345,129,,633,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Illinois,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,13,248,,,0,13,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Illinois,Decedent's Home,2/1/2020,11/28/2020,540,34276,665,110,18,1113,
+12/2/2020,Illinois,Hospice Facility,2/1/2020,11/28/2020,253,4005,340,136,,466,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Illinois,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,2199,18998,1194,498,25,2920,
+12/2/2020,Illinois,Other,2/1/2020,11/28/2020,269,7058,166,59,,379,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Illinois,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Indiana,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,2873,17364,4050,1861,91,5148,
+12/2/2020,Indiana,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,84,2403,104,32,,159,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Indiana,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,50,0,0,0,0,
+12/2/2020,Indiana,Decedent's Home,2/1/2020,11/28/2020,222,20469,481,58,13,658,
+12/2/2020,Indiana,Hospice Facility,2/1/2020,11/28/2020,91,2445,219,62,,255,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Indiana,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,2053,15035,953,367,19,2658,
+12/2/2020,Indiana,Other,2/1/2020,11/28/2020,32,2942,45,,,77,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Indiana,Place of Death Unknown,2/1/2020,11/28/2020,0,13,0,0,0,0,
+12/2/2020,Iowa,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,1262,6792,1336,629,41,2010,
+12/2/2020,Iowa,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,52,1258,41,,,87,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Iowa,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,36,,,,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Iowa,Decedent's Home,2/1/2020,11/28/2020,131,7672,182,25,,297,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Iowa,Hospice Facility,2/1/2020,11/28/2020,58,2361,182,13,10,237,
+12/2/2020,Iowa,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,1124,8441,427,147,23,1427,
+12/2/2020,Iowa,Other,2/1/2020,11/28/2020,14,777,12,,0,23,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Iowa,Place of Death Unknown,2/1/2020,11/28/2020,,,0,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Kansas,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,950,6213,1225,534,51,1691,
+12/2/2020,Kansas,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,44,959,41,13,,74,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Kansas,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,23,0,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Kansas,Decedent's Home,2/1/2020,11/28/2020,113,7803,157,21,13,262,
+12/2/2020,Kansas,Hospice Facility,2/1/2020,11/28/2020,18,1228,90,,,106,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Kansas,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,536,6309,292,117,18,729,
+12/2/2020,Kansas,Other,2/1/2020,11/28/2020,13,1293,22,,0,33,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Kansas,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Kentucky,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,1409,13059,2908,847,68,3536,
+12/2/2020,Kentucky,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,80,3225,113,21,,176,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Kentucky,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,59,0,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Kentucky,Decedent's Home,2/1/2020,11/28/2020,98,14179,331,32,17,414,
+12/2/2020,Kentucky,Hospice Facility,2/1/2020,11/28/2020,76,3234,180,17,12,251,
+12/2/2020,Kentucky,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,473,6086,329,83,,721,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Kentucky,Other,2/1/2020,11/28/2020,11,2009,29,,0,37,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Kentucky,Place of Death Unknown,2/1/2020,11/28/2020,0,,0,0,0,0,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Louisiana,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,3969,13666,3180,2096,58,5106,
+12/2/2020,Louisiana,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,251,2782,213,115,,352,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Louisiana,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,38,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Louisiana,Decedent's Home,2/1/2020,11/28/2020,311,16092,296,90,,526,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Louisiana,Hospice Facility,2/1/2020,11/28/2020,206,2119,166,106,,268,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Louisiana,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,781,6799,498,303,,977,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Louisiana,Other,2/1/2020,11/28/2020,54,2721,55,15,,95,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Louisiana,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Maine,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,101,2749,443,35,22,531,
+12/2/2020,Maine,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,,371,25,,,28,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Maine,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,,,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Maine,Decedent's Home,2/1/2020,11/28/2020,15,4724,120,,,133,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Maine,Hospice Facility,2/1/2020,11/28/2020,0,1369,40,0,,42,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Maine,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,95,2698,153,11,,240,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Maine,Other,2/1/2020,11/28/2020,,775,11,0,0,15,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Maine,Place of Death Unknown,2/1/2020,11/28/2020,0,,0,0,0,0,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Maryland,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,2686,12083,2864,1330,93,4300,
+12/2/2020,Maryland,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,196,3221,140,28,,310,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Maryland,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,56,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Maryland,Decedent's Home,2/1/2020,11/28/2020,220,15755,273,39,,462,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Maryland,Hospice Facility,2/1/2020,11/28/2020,385,4866,544,144,12,796,
+12/2/2020,Maryland,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,1182,7390,516,218,13,1491,
+12/2/2020,Maryland,Other,2/1/2020,11/28/2020,176,4847,130,31,,276,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Maryland,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Massachusetts,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,4201,17642,4218,2207,116,6326,
+12/2/2020,Massachusetts,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,193,3687,170,49,,320,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Massachusetts,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,430,,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Massachusetts,Decedent's Home,2/1/2020,11/28/2020,237,16030,331,54,18,531,
+12/2/2020,Massachusetts,Hospice Facility,2/1/2020,11/28/2020,42,2478,142,26,11,169,
+12/2/2020,Massachusetts,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,3624,12820,1218,700,15,4155,
+12/2/2020,Massachusetts,Other,2/1/2020,11/28/2020,252,3444,96,31,,318,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Massachusetts,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Michigan,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,5512,26342,6308,3229,182,8767,
+12/2/2020,Michigan,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,315,5143,341,123,12,545,
+12/2/2020,Michigan,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,122,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Michigan,Decedent's Home,2/1/2020,11/28/2020,451,33337,541,115,18,895,
+12/2/2020,Michigan,Hospice Facility,2/1/2020,11/28/2020,214,7096,218,43,,392,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Michigan,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,1117,13302,663,220,27,1585,
+12/2/2020,Michigan,Other,2/1/2020,11/28/2020,66,2244,65,27,,108,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Michigan,Place of Death Unknown,2/1/2020,11/28/2020,71,3197,48,13,,106,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Minnesota,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,1320,9507,1797,708,77,2485,
+12/2/2020,Minnesota,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,50,1409,59,13,,97,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Minnesota,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,38,0,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Minnesota,Decedent's Home,2/1/2020,11/28/2020,241,13686,381,44,13,591,
+12/2/2020,Minnesota,Hospice Facility,2/1/2020,11/28/2020,18,1311,54,,,71,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Minnesota,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,1673,12763,797,277,27,2220,
+12/2/2020,Minnesota,Other,2/1/2020,11/28/2020,51,2157,57,10,,99,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Minnesota,Place of Death Unknown,2/1/2020,11/28/2020,0,25,0,0,0,0,
+12/2/2020,Mississippi,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,2660,10199,3045,1637,41,4104,
+12/2/2020,Mississippi,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,157,2639,159,52,,270,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Mississippi,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,66,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Mississippi,Decedent's Home,2/1/2020,11/28/2020,203,10552,191,36,,367,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Mississippi,Hospice Facility,2/1/2020,11/28/2020,18,1383,97,,,109,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Mississippi,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,562,4186,281,142,,702,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Mississippi,Other,2/1/2020,11/28/2020,20,1940,14,,0,31,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Mississippi,Place of Death Unknown,2/1/2020,11/28/2020,,,0,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Missouri,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,2555,16499,3089,1329,123,4436,
+12/2/2020,Missouri,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,98,3235,115,25,10,198,
+12/2/2020,Missouri,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,47,0,0,,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Missouri,Decedent's Home,2/1/2020,11/28/2020,198,19758,325,48,14,489,
+12/2/2020,Missouri,Hospice Facility,2/1/2020,11/28/2020,28,2237,78,,12,111,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Missouri,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,1392,13381,647,244,19,1814,
+12/2/2020,Missouri,Other,2/1/2020,11/28/2020,26,2841,34,,,55,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Missouri,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Montana,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,379,2549,468,227,19,639,
+12/2/2020,Montana,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,15,328,15,,0,26,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Montana,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,13,0,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Montana,Decedent's Home,2/1/2020,11/28/2020,47,3310,62,,,105,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Montana,Hospice Facility,2/1/2020,11/28/2020,,367,22,,,25,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Montana,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,171,2174,84,30,12,237,
+12/2/2020,Montana,Other,2/1/2020,11/28/2020,,518,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Montana,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Nebraska,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,725,4243,850,367,17,1225,
+12/2/2020,Nebraska,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,32,833,32,,,61,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Nebraska,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,10,0,0,0,0,
+12/2/2020,Nebraska,Decedent's Home,2/1/2020,11/28/2020,77,4376,124,13,,190,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Nebraska,Hospice Facility,2/1/2020,11/28/2020,,363,23,,,25,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Nebraska,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,267,3812,224,70,,426,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Nebraska,Other,2/1/2020,11/28/2020,55,1629,34,,,86,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Nebraska,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Nevada,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,1496,7688,2259,1237,26,2544,
+12/2/2020,Nevada,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,63,2076,93,36,,124,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Nevada,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,,0,0,0,0,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Nevada,Decedent's Home,2/1/2020,11/28/2020,111,8354,106,29,,197,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Nevada,Hospice Facility,2/1/2020,11/28/2020,231,4131,227,141,,319,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Nevada,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,36,555,45,25,0,56,
+12/2/2020,Nevada,Other,2/1/2020,11/28/2020,27,1389,49,19,0,57,
+12/2/2020,Nevada,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,New Hampshire,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,190,2715,389,101,28,504,
+12/2/2020,New Hampshire,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,,433,14,0,,21,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New Hampshire,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,17,0,0,0,0,
+12/2/2020,New Hampshire,Decedent's Home,2/1/2020,11/28/2020,,4034,66,,,75,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New Hampshire,Hospice Facility,2/1/2020,11/28/2020,,423,15,,0,18,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New Hampshire,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,291,2706,145,24,,413,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New Hampshire,Other,2/1/2020,11/28/2020,10,680,12,,0,20,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New Hampshire,Place of Death Unknown,2/1/2020,11/28/2020,0,,0,0,0,0,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New Jersey,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,9348,27507,7857,5458,83,11821,
+12/2/2020,New Jersey,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,468,4182,298,144,,625,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New Jersey,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,23,275,11,,0,30,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New Jersey,Decedent's Home,2/1/2020,11/28/2020,710,23504,407,131,14,998,
+12/2/2020,New Jersey,Hospice Facility,2/1/2020,11/28/2020,311,2573,214,126,,402,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New Jersey,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,3966,16565,2067,1329,14,4717,
+12/2/2020,New Jersey,Other,2/1/2020,11/28/2020,227,3836,128,76,,282,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New Jersey,Place of Death Unknown,2/1/2020,11/28/2020,,,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New Mexico,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,793,4062,988,478,17,1319,
+12/2/2020,New Mexico,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,45,719,46,21,,72,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New Mexico,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,17,0,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New Mexico,Decedent's Home,2/1/2020,11/28/2020,97,7257,155,31,12,233,
+12/2/2020,New Mexico,Hospice Facility,2/1/2020,11/28/2020,,503,38,,0,39,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New Mexico,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,258,2596,138,48,0,348,
+12/2/2020,New Mexico,Other,2/1/2020,11/28/2020,23,1433,21,,0,37,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New Mexico,Place of Death Unknown,2/1/2020,11/28/2020,,,0,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New York,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,7611,29963,8100,4348,122,11482,
+12/2/2020,New York,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,364,5408,353,120,,603,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New York,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,24,509,13,,,31,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New York,Decedent's Home,2/1/2020,11/28/2020,599,31061,748,161,39,1215,
+12/2/2020,New York,Hospice Facility,2/1/2020,11/28/2020,463,6381,692,302,17,866,
+12/2/2020,New York,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,3290,21455,2212,926,34,4607,
+12/2/2020,New York,Other,2/1/2020,11/28/2020,180,2725,97,41,,238,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New York,Place of Death Unknown,2/1/2020,11/28/2020,,43,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New York City,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,15331,34244,9680,6720,92,18377,
+12/2/2020,New York City,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,1401,5659,867,532,10,1744,
+12/2/2020,New York City,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,25,371,14,,,33,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New York City,Decedent's Home,2/1/2020,11/28/2020,1963,18813,205,97,842,2102,
+12/2/2020,New York City,Hospice Facility,2/1/2020,11/28/2020,15,570,41,,,51,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New York City,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,2360,10598,1069,731,,2703,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New York City,Other,2/1/2020,11/28/2020,41,1000,,,15,48,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,New York City,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,North Carolina,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,2007,16766,3090,1027,168,4237,
+12/2/2020,North Carolina,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,65,2904,104,19,,158,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,North Carolina,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,336,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,North Carolina,Decedent's Home,2/1/2020,11/28/2020,137,21658,361,33,20,483,
+12/2/2020,North Carolina,Hospice Facility,2/1/2020,11/28/2020,80,7858,403,31,13,465,
+12/2/2020,North Carolina,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,777,10561,668,161,18,1302,
+12/2/2020,North Carolina,Other,2/1/2020,11/28/2020,37,3990,49,,,85,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,North Carolina,Place of Death Unknown,2/1/2020,11/28/2020,,102,,,0,11,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,North Dakota,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,405,2408,557,273,17,706,
+12/2/2020,North Dakota,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,,267,,0,0,12,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,North Dakota,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,17,0,0,0,0,
+12/2/2020,North Dakota,Decedent's Home,2/1/2020,11/28/2020,23,1367,27,,,48,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,North Dakota,Hospice Facility,2/1/2020,11/28/2020,0,37,0,0,0,0,
+12/2/2020,North Dakota,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,292,1995,145,65,,374,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,North Dakota,Other,2/1/2020,11/28/2020,,249,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,North Dakota,Place of Death Unknown,2/1/2020,11/28/2020,0,,0,0,0,0,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Ohio,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,3292,26538,4452,1827,169,6086,
+12/2/2020,Ohio,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,140,6719,218,44,,322,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Ohio,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,276,13,,0,15,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Ohio,Decedent's Home,2/1/2020,11/28/2020,261,33042,577,96,39,781,
+12/2/2020,Ohio,Hospice Facility,2/1/2020,11/28/2020,375,9940,640,186,21,850,
+12/2/2020,Ohio,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,2237,26182,1391,553,28,3102,
+12/2/2020,Ohio,Other,2/1/2020,11/28/2020,65,5016,74,14,,126,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Ohio,Place of Death Unknown,2/1/2020,11/28/2020,,41,,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Oklahoma,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,1440,9910,2424,710,96,3243,
+12/2/2020,Oklahoma,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,100,2744,108,17,,196,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Oklahoma,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,18,,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Oklahoma,Decedent's Home,2/1/2020,11/28/2020,137,12743,311,22,11,436,
+12/2/2020,Oklahoma,Hospice Facility,2/1/2020,11/28/2020,15,1056,90,,,104,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Oklahoma,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,443,5920,280,61,,664,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Oklahoma,Other,2/1/2020,11/28/2020,35,2095,39,,,72,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Oklahoma,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Oregon,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,399,7035,915,182,41,1173,
+12/2/2020,Oregon,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,27,1216,43,,,65,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Oregon,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,11,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Oregon,Decedent's Home,2/1/2020,11/28/2020,88,13589,201,17,12,284,
+12/2/2020,Oregon,Hospice Facility,2/1/2020,11/28/2020,,740,18,,,20,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Oregon,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,237,5679,219,45,10,420,
+12/2/2020,Oregon,Other,2/1/2020,11/28/2020,16,2960,53,,,69,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Oregon,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Pennsylvania,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,5304,33315,6229,2930,176,8773,
+12/2/2020,Pennsylvania,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,188,5319,195,47,10,346,
+12/2/2020,Pennsylvania,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,474,,0,,10,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Pennsylvania,Decedent's Home,2/1/2020,11/28/2020,388,39124,610,92,17,923,
+12/2/2020,Pennsylvania,Hospice Facility,2/1/2020,11/28/2020,208,6036,344,97,18,473,
+12/2/2020,Pennsylvania,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,4316,31729,1729,715,38,5368,
+12/2/2020,Pennsylvania,Other,2/1/2020,11/28/2020,49,5494,61,,0,102,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Pennsylvania,Place of Death Unknown,2/1/2020,11/28/2020,,10,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Rhode Island,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,415,1966,423,245,11,604,
+12/2/2020,Rhode Island,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,28,731,31,13,0,46,
+12/2/2020,Rhode Island,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,35,,0,,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Rhode Island,Decedent's Home,2/1/2020,11/28/2020,46,2553,62,12,,98,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Rhode Island,Hospice Facility,2/1/2020,11/28/2020,121,1254,119,86,,160,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Rhode Island,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,591,2501,215,137,,673,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Rhode Island,Other,2/1/2020,11/28/2020,,138,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Rhode Island,Place of Death Unknown,2/1/2020,11/28/2020,35,149,29,15,0,49,
+12/2/2020,South Carolina,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,2804,13801,3066,1510,74,4429,
+12/2/2020,South Carolina,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,142,2998,104,34,0,212,
+12/2/2020,South Carolina,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,22,0,0,0,0,
+12/2/2020,South Carolina,Decedent's Home,2/1/2020,11/28/2020,245,18102,328,58,12,527,
+12/2/2020,South Carolina,Hospice Facility,2/1/2020,11/28/2020,255,3704,252,91,,423,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,South Carolina,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,735,6468,374,142,10,977,
+12/2/2020,South Carolina,Other,2/1/2020,11/28/2020,30,2800,30,,,56,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,South Carolina,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,South Dakota,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,407,2048,485,250,10,652,
+12/2/2020,South Dakota,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,19,401,13,,0,29,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,South Dakota,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,10,0,0,0,0,
+12/2/2020,South Dakota,Decedent's Home,2/1/2020,11/28/2020,32,1731,49,12,,71,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,South Dakota,Hospice Facility,2/1/2020,11/28/2020,22,795,57,11,,73,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,South Dakota,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,313,2157,129,59,,390,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,South Dakota,Other,2/1/2020,11/28/2020,,373,,,,13,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,South Dakota,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Tennessee,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,3089,21785,4632,1823,103,6000,
+12/2/2020,Tennessee,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,171,5702,245,54,,367,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Tennessee,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,25,1456,31,11,,46,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Tennessee,Decedent's Home,2/1/2020,11/28/2020,195,22982,467,55,12,619,
+12/2/2020,Tennessee,Hospice Facility,2/1/2020,11/28/2020,77,2424,145,46,,184,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Tennessee,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,713,10829,703,193,11,1234,
+12/2/2020,Tennessee,Other,2/1/2020,11/28/2020,34,3787,59,,,86,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Tennessee,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Texas,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,16216,64696,17096,9921,286,23665,
+12/2/2020,Texas,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,818,12994,631,211,14,1252,
+12/2/2020,Texas,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,16,231,,,0,21,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Texas,Decedent's Home,2/1/2020,11/28/2020,1610,66491,1559,315,48,2899,
+12/2/2020,Texas,Hospice Facility,2/1/2020,11/28/2020,259,8840,819,138,11,951,
+12/2/2020,Texas,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,2614,29929,1686,714,16,3601,
+12/2/2020,Texas,Other,2/1/2020,11/28/2020,362,14325,350,100,,621,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Texas,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Utah,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,502,3619,694,278,20,938,
+12/2/2020,Utah,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,19,661,25,,,41,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Utah,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,18,0,0,0,0,
+12/2/2020,Utah,Decedent's Home,2/1/2020,11/28/2020,110,7868,212,31,10,301,
+12/2/2020,Utah,Hospice Facility,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Utah,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,242,4005,171,30,,390,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Utah,Other,2/1/2020,11/28/2020,18,1350,29,,,41,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Utah,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Vermont,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,30,1062,123,13,,149,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Vermont,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,,218,,0,,10,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Vermont,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,11,0,0,0,0,
+12/2/2020,Vermont,Decedent's Home,2/1/2020,11/28/2020,,1893,34,0,,39,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Vermont,Hospice Facility,2/1/2020,11/28/2020,0,289,12,0,,13,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Vermont,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,35,1220,46,,,81,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Vermont,Other,2/1/2020,11/28/2020,,330,,0,,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Vermont,Place of Death Unknown,2/1/2020,11/28/2020,0,,0,0,0,0,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Virginia,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,2579,18700,3052,1313,77,4391,
+12/2/2020,Virginia,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,111,3121,136,28,11,230,
+12/2/2020,Virginia,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,167,,,,10,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Virginia,Decedent's Home,2/1/2020,11/28/2020,217,23125,314,45,19,503,
+12/2/2020,Virginia,Hospice Facility,2/1/2020,11/28/2020,50,1671,55,21,,85,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Virginia,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,1113,11445,397,117,10,1403,
+12/2/2020,Virginia,Other,2/1/2020,11/28/2020,48,4742,36,,,78,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Virginia,Place of Death Unknown,2/1/2020,11/28/2020,,52,,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Washington,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,1379,14102,2486,888,82,3054,
+12/2/2020,Washington,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,35,1370,87,14,,109,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Washington,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,43,,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Washington,Decedent's Home,2/1/2020,11/28/2020,199,20403,436,78,17,574,
+12/2/2020,Washington,Hospice Facility,2/1/2020,11/28/2020,63,2957,134,26,,176,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Washington,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,649,8645,471,198,,931,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Washington,Other,2/1/2020,11/28/2020,39,2716,60,16,,85,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Washington,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,West Virginia,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,279,4656,858,136,43,1044,
+12/2/2020,West Virginia,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,,1239,43,,,47,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,West Virginia,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,0,32,,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,West Virginia,Decedent's Home,2/1/2020,11/28/2020,10,5833,89,,,99,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,West Virginia,Hospice Facility,2/1/2020,11/28/2020,13,1744,107,,,118,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,West Virginia,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,115,2391,107,16,,212,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,West Virginia,Other,2/1/2020,11/28/2020,,885,14,,,18,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,West Virginia,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Wisconsin,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,1969,12304,1904,758,101,3216,
+12/2/2020,Wisconsin,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,64,1884,68,19,,119,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Wisconsin,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,100,,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Wisconsin,Decedent's Home,2/1/2020,11/28/2020,284,15826,288,52,18,538,
+12/2/2020,Wisconsin,Hospice Facility,2/1/2020,11/28/2020,117,3424,182,37,,269,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Wisconsin,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,696,7691,396,129,12,975,
+12/2/2020,Wisconsin,Other,2/1/2020,11/28/2020,404,7976,181,51,,540,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Wisconsin,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Wyoming,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,90,784,149,49,,194,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Wyoming,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,,255,15,,,23,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Wyoming,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,11,0,0,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Wyoming,Decedent's Home,2/1/2020,11/28/2020,17,1702,45,,0,57,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Wyoming,Hospice Facility,2/1/2020,11/28/2020,,385,23,,0,28,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Wyoming,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,61,790,52,13,,102,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Wyoming,Other,2/1/2020,11/28/2020,,329,,,0,,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Wyoming,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Puerto Rico,"Healthcare Setting, Inpatient",2/1/2020,11/28/2020,839,0,0,0,0,0,
+12/2/2020,Puerto Rico,"Healthcare Setting, Outpatient or Emergency Room",2/1/2020,11/28/2020,51,0,0,0,0,0,
+12/2/2020,Puerto Rico,"Healthcare Setting, Dead on Arrival",2/1/2020,11/28/2020,,0,0,0,0,0,One or more data cells have counts between 1-9 and have been suppressed in accordance with NCHS confidentiality standards.
+12/2/2020,Puerto Rico,Decedent's Home,2/1/2020,11/28/2020,28,0,0,0,0,0,
+12/2/2020,Puerto Rico,Hospice Facility,2/1/2020,11/28/2020,0,0,0,0,0,0,
+12/2/2020,Puerto Rico,Nursing Home or Long Term Care Facility,2/1/2020,11/28/2020,17,0,0,0,0,0,
+12/2/2020,Puerto Rico,Other,2/1/2020,11/28/2020,10,0,0,0,0,0,
+12/2/2020,Puerto Rico,Place of Death Unknown,2/1/2020,11/28/2020,0,0,0,0,0,0,

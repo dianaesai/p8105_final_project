@@ -102,8 +102,12 @@ prevent_map1 = plot_usmap(data = states_df, values = "length", color = "black") 
 
 ggplotly(prevent_map1)
 
+```
+
+
+```{r}
 map2_title = list(
-  text = "States that have mask mandates",
+  text = "State has mask mandates",
   xref = "paper",
   yref = "paper",
   yanchor = "bottom",
@@ -114,7 +118,7 @@ map2_title = list(
   showarrow = FALSE)
 
 map3_title = list(
-  text = "States that have travel restrictions",
+  text = "State has travel restrictions",
   xref = "paper",
   yref = "paper",
   yanchor = "bottom",
@@ -128,13 +132,12 @@ prevent_map2 = plot_usmap(data = states_df, values = "mask_mandate", color = "bl
   theme(legend.position = "none")
 
 prevent_map3 = plot_usmap(data = states_df, values = "travel_restrictions", color = "black")+
-  theme(legend.position = "none")
+  theme(legend.position = "right")
 
 prevent_map2 = ggplotly(prevent_map2) %>% layout(annotations = map2_title)
 prevent_map3 = ggplotly(prevent_map3) %>% layout(annotations = map3_title)
 
-subplot(prevent_map2, prevent_map3)
-
+subplot(style(prevent_map2, showlegend = F), prevent_map3)
 ```
 
 I know these are ugly... still working on them and looking for a better way to condense to one graphic
@@ -234,10 +237,32 @@ mod5_df
 ```
 
 
-### What measures did each step take to preventing the spread of COVID-19?
+### Is there an association between a states' lockdown duration and non-COVID-19 deaths at home?
 
 ```{r}
+home_deaths = read_csv("data/place_of_death.csv") %>% 
+  clean_names() %>% 
+  filter(place_of_death == "Decedent's Home") %>% 
+  filter(state != "United States") %>%
+  filter(state != "New York City") %>% 
+  filter(state != "Puerto Rico") %>% 
+  mutate(non_covid_home_deaths = total_deaths-covid19_deaths) %>% 
+  select(state, non_covid_home_deaths) %>% 
+  view
 
+states_final = right_join(states, home_deaths) %>% 
+  mutate(non_covid_home_deaths_r = non_covid_home_deaths/100000) %>% 
+  view
+
+
+
+states_final %>% 
+ ggplot( aes(x=length,y=non_covid_home_deaths_r, size=population))+
+   labs(x = "Length of stay-at-home order (days)", y = "Deaths at home not attributed\n to COVID-19 per 100,000 residents") +
+  geom_point(alpha=0.5)+
+  geom_smooth(, weight="population")+
+ theme(legend.position = "none") +
+  scale_y_continuous(limits=c(0, 1))
 
 ```
 
