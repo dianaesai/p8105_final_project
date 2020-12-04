@@ -33,7 +33,7 @@ options(scipen=10)
 
 ```
 
-### Are lockdowns responsible for additional excess deaths that are not related to COVID-19?
+### Do lockdowns kill? 
 
 ```{r}
 excess_deaths <- read_csv("data/Excess_Deaths_Associated_with_COVID-19.csv") %>% 
@@ -85,7 +85,7 @@ states %>%
 
 ```
 
-```{r, results=FALSE}
+```{r}
 mod3 = lm.cluster(excess_not_covid_r ~ length, data = states, cluster="state")
 
 mod3_sum = 
@@ -109,4 +109,6 @@ mod3_df =
 mod3_df
 ```
 
-### Have prevention methods help mitigate excess COVID-19 deaths? 
+We can see from this model that there is no statistically significant association between length of lockdowns and excess deaths not realted to COVID-19. These results undermine the notion that "lockdowns kill people" that many persons assert. 
+
+### Well, did prevention methods even help mitigate excess COVID-19 deaths? 

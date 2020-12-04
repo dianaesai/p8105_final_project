@@ -23,8 +23,21 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -290,6 +303,9 @@ $(document).ready(function () {
   <a href="preventions.html">Prevention Outcomes</a>
 </li>
 <li>
+  <a href="dashboard.html">Dashboard</a>
+</li>
+<li>
   <a href="final_report.html">Conclusion</a>
 </li>
 <li class="dropdown">
@@ -347,8 +363,8 @@ $(document).ready(function () {
 </div>
 
 
-<div id="are-lockdowns-responsible-for-additional-excess-deaths-that-are-not-related-to-covid-19" class="section level3">
-<h3>Are lockdowns responsible for additional excess deaths that are not related to COVID-19?</h3>
+<div id="do-lockdowns-kill" class="section level3">
+<h3>Do lockdowns kill?</h3>
 <pre class="r"><code>excess_deaths &lt;- read_csv(&quot;data/Excess_Deaths_Associated_with_COVID-19.csv&quot;) %&gt;% 
   clean_names() %&gt;% 
   rename(end_week=week_ending_date) %&gt;% 
@@ -400,9 +416,13 @@ states %&gt;%
 
 mod3_sum = 
   summary(mod3)%&gt;% 
-  as.tibble()
-
-mod3_CI = 
+  as.tibble()</code></pre>
+<pre><code>## R^2= 0.01246 
+## 
+##               Estimate Std. Error    t value               Pr(&gt;|t|)
+## (Intercept) 34.5792313  4.4984495  7.6869223 0.00000000000001507166
+## length      -0.0946756  0.0965685 -0.9803984 0.32688950924302806467</code></pre>
+<pre class="r"><code>mod3_CI = 
   confint(mod3)%&gt;% 
   as.tibble()
 
@@ -417,9 +437,88 @@ mod3_df =
   kable_classic()
 
 mod3_df</code></pre>
+<table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+<caption>
+Linear model output assessing association of length of lockdown and non-COVID-19 excess deaths
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Variables
+</th>
+<th style="text-align:right;">
+Estimate
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+t value
+</th>
+<th style="text-align:right;">
+Pr(&gt;|t|)
+</th>
+<th style="text-align:right;">
+2.5 %
+</th>
+<th style="text-align:right;">
+97.5 %
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Intercept
+</td>
+<td style="text-align:right;">
+34.58
+</td>
+<td style="text-align:right;">
+4.5
+</td>
+<td style="text-align:right;">
+7.69
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+25.76
+</td>
+<td style="text-align:right;">
+43.40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Length of stay-at-home order
+</td>
+<td style="text-align:right;">
+-0.09
+</td>
+<td style="text-align:right;">
+0.1
+</td>
+<td style="text-align:right;">
+-0.98
+</td>
+<td style="text-align:right;">
+0.33
+</td>
+<td style="text-align:right;">
+-0.28
+</td>
+<td style="text-align:right;">
+0.09
+</td>
+</tr>
+</tbody>
+</table>
+<p>We can see from this model that there is no statistically significant association between length of lockdowns and excess deaths not realted to COVID-19. These results undermine the notion that “lockdowns kill people” that many persons assert.</p>
 </div>
-<div id="have-prevention-methods-help-mitigate-excess-covid-19-deaths" class="section level3">
-<h3>Have prevention methods help mitigate excess COVID-19 deaths?</h3>
+<div id="well-did-prevention-methods-even-help-mitigate-excess-covid-19-deaths" class="section level3">
+<h3>Well, did prevention methods even help mitigate excess COVID-19 deaths?</h3>
 </div>
 
 <!DOCTYPE html>
@@ -444,7 +543,7 @@ Data Science Fall 2020
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();

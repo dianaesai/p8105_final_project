@@ -14,7 +14,6 @@ library(moderndive)
 library(stats)
 library(skimr)
 library(kableExtra)
-
 ```
 
 For this project we are using two datasets available from the CDC. 
