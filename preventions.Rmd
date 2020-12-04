@@ -20,6 +20,7 @@ library(kableExtra)
 library(usmap)
 library(janitor)
 library(miceadds)
+library(stringr)
 
 options(
   ggplot2.continuous.colour = "viridis",
@@ -33,7 +34,7 @@ options(scipen=10)
 
 ```
 
-### Do lockdowns kill? 
+### Do "lockdowns kill"? Assessing the association between lockdown durations and excess deaths not related to COVID-19.
 
 ```{r}
 excess_deaths <- read_csv("data/Excess_Deaths_Associated_with_COVID-19.csv") %>% 
@@ -90,11 +91,11 @@ mod3 = lm.cluster(excess_not_covid_r ~ length, data = states, cluster="state")
 
 mod3_sum = 
   summary(mod3)%>% 
-  as.tibble()
+  as_tibble()
 
 mod3_CI = 
   confint(mod3)%>% 
-  as.tibble()
+  as_tibble()
 
 
 mod3_df = 
@@ -109,6 +110,81 @@ mod3_df =
 mod3_df
 ```
 
-We can see from this model that there is no statistically significant association between length of lockdowns and excess deaths not realted to COVID-19. These results undermine the notion that "lockdowns kill people" that many persons assert. 
+We can see from this model that there is no statistically significant association between length of lockdowns and excess deaths not related to COVID-19. These results undermine the notion that "lockdowns kill people" that many persons assert. 
 
-### Well, did prevention methods even help mitigate excess COVID-19 deaths? 
+### Well, how about masks and travel restrictions? Did states that decreased civil liberties see a significant increase in excess deaths not related to COVID-19?  
+
+```{r}
+preventions_df = read_csv("data/prevention_measures.csv") %>% 
+  clean_names() %>% 
+  mutate(
+    mask_mandate = str_sub(mask_mandate, 0, 3),
+    mask_mandate = ifelse(mask_mandate == "No", FALSE, TRUE),
+    travel_restrictions = ifelse(travel_restrictions == "There are no statewide restrictions.", FALSE, TRUE)
+    ) 
+
+states_df=right_join(states,preventions_df)
+
+mod4 = lm.cluster(excess_not_covid_r ~ mask_mandate + travel_restrictions, data = states_df, cluster="state")
+
+
+mod4_sum = 
+  summary(mod4) %>% 
+  as_tibble()
+
+mod4_CI = 
+  confint(mod4) %>% 
+  as_tibble()
+
+mod4_df = 
+  bind_cols(mod4_sum, mod4_CI) %>% 
+  mutate(
+    Variables = c("Intercept", "Mask mandate", "Travel restrictions")
+  ) %>% 
+  relocate(Variables) %>% 
+  kbl(caption="Linear model output assessing association of prevention methods and excess deaths", digits = 2) %>%
+  kable_classic()
+
+mod4_df
+```
+
+So masks, kill persons? Not so fast. 
+
+## What's the relationship between mask mandates and COVID-19 deaths?
+
+
+```{r}
+mod5 = lm.cluster(covid_death_r ~ mask_mandate, data = states_df, cluster="state")
+
+
+mod5_sum = 
+  summary(mod5) %>% 
+  as_tibble()
+
+mod5_CI = 
+  confint(mod5) %>% 
+  as_tibble()
+
+mod5_df = 
+  bind_cols(mod5_sum, mod5_CI) %>% 
+  mutate(
+    Variables = c("Intercept", "Mask mandate")
+  ) %>% 
+  relocate(Variables) %>% 
+  kbl(caption="Linear model output assessing association of mask mandates and COVID-19 deaths", digits = 2) %>%
+  kable_classic()
+
+mod5_df
+```
+
+
+## What measures did each step take to preventing the spread of COVID-19?
+
+```{r}
+prevent_map = plot_usmap(data = states_df, values = "mask_mandate", color = "black") +   
+  theme(legend.position = "right")
+
+ ggplotly(prevent_map)
+
+```
+
