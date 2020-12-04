@@ -39,8 +39,6 @@ excess_deaths <- read_csv("data/Excess_Deaths_Associated_with_COVID-19.csv") %>%
   rename(end_week=week_ending_date) %>%
   filter(type=="Predicted (weighted)"&outcome=="All causes")
 
-excess_deaths
-
 recorded_deaths = excess_deaths %>%
   separate(col=end_week,into=c("year","month","day"),sep="-") %>%
   select(c(year,month,state,observed_number)) %>%
