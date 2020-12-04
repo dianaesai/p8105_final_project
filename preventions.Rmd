@@ -22,13 +22,7 @@ library(janitor)
 library(miceadds)
 library(stringr)
 
-options(
-  ggplot2.continuous.colour = "viridis",
-  ggplot2.continuous.fill = "viridis"
-)
-scale_colour_discrete = scale_colour_viridis_d
-scale_fill_discrete = scale_fill_viridis_d
-theme_set(theme_minimal() + theme(legend.position = "bottom",plot.title = element_text(face = "bold")))
+
 
 options(scipen=10)
 
