@@ -10,25 +10,27 @@ output:
 
 <img src="images/covid_protest.jpeg" style="width:100%">
 *"Liberate Michigan" protests against Governor Gretchen Whitmer's lockdown orders.*
+
 <br>
 
-### **Motivation**
-Since the start of COVID-19, a range of conspiracy theories have spun up in the United States about the scope and severity of the pandemic. The [President](https://apnews.com/article/virus-outbreak-donald-trump-ap-fact-check-anthony-fauci-flu-fe474f0c15f76adf324791a2cfc1e2bb) has repeatedly compared coronavirus to the flu, claiming that the lethality of the two diseases are comparable. While public health professionals can quickly dismiss these statements as nonsensical absurdities, they are actually not unusual at all amongst the general public. As the daily Covid Death toll reaching new heights in the United States, 30% of Americans are [not concerned](https://projects.fivethirtyeight.com/coronavirus-polls/) with the virus.  
+### Motivation
+Since the beginning of COVID-19 pandemic, a range of conspiracy theories and pseudo-intellectual arguments have spun up around the globe about the scope and severity of the pandemic. The [President of The United States](https://apnews.com/article/virus-outbreak-donald-trump-ap-fact-check-anthony-fauci-flu-fe474f0c15f76adf324791a2cfc1e2bb) has repeatedly compared coronavirus to the flu, claiming that the lethality of the two diseases are comparable. While public health professionals can quickly dismiss these statements as nonsensical absurdities, they are actually not unusual opinions amongst the general public. As the daily COVID Death toll reaching new heights in the United States, 30% of Americans are still [not concerned](https://projects.fivethirtyeight.com/coronavirus-polls/) with the virus according to the newest tracking poll from Fivethirtyeight.
 
-Some COVID skeptics often raises the point that they believe the COVID-19's death toll is inflated by hospital reporting other diseases under the name of COVID-19 - therefore, COVID-19 has not increased total mortality rate dramatically. The following video of Donald Trump and Elon Musk are representative of this line of thinking.
-
-![](https://youtu.be/zNzZ1PfUDNk){width="90%"}
+Some COVID skeptics often raises the point that they believe the COVID-19's death toll is inflated by hospital reporting other diseases under the name of COVID-19 - therefore, COVID-19 has not increased total mortality rate dramatically. The following videos of Donald Trump and Elon Musk are representative of this line of thinking.
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=xR4j3WttbdU&ab_channel=EvanCarmichael" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xR4j3WttbdU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=UK1OtCuGRbk&ab_channel=FRONTLINEPBS%7COfficial" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  
-  
-Furthermore, as the pandemic had  worn on, the general public has grown increasingly skeptical of the preventive measures that public health officials are promoting throughout the developed world, the idea that ["lockdowns kill people"](https://www.radiologybusiness.com/topics/policy/scott-atlas-radiologist-white-house-covid-19-fauci) has been picked up by an increasingly large portions of pundits, activists and elected officials alike. Opponents of lockdowns claim that these restrictions have significant negative impacts on other aspects of public health, and those consequences vastly outweigh the the supposed benefits that these preventive measures are intended for.  
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UK1OtCuGRbk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 <br>
 
-### **Exploratory Analyses**
+Furthermore, as the pandemic had  worn on, the general public has grown increasingly skeptical of the preventive measures that public health officials are promoting throughout the developed world, the idea that ["lockdowns kill people"](https://www.radiologybusiness.com/topics/policy/scott-atlas-radiologist-white-house-covid-19-fauci) has been picked up by an increasingly large portions of pundits, activists and elected officials alike. Opponents of lockdowns claim that these restrictions have significant negative impacts on other aspects of public health, and those consequences vastly outweigh the the supposed benefits that these preventive measures are intended for. One of the most notable proponents of a "return to normal" approach is an organization named the [Great Barrington Declaration](https://gbdeclaration.org/), a group of epidemiologists and doctors who believe that reaching herd immunity instead of curbing the spread of the virus is the "more compassionate approach that balances the risks and benefits".
+
+<br>
+
+### Exploratory Analyses
 We believe that the excess deaths data from Center of Disease Control, in comparison to COVID-19 deaths/cases, provides a intuitive and holistic assessment of the impact of pandemic. The excess deaths data is a self-explanatory variable that the general public, even one without any form of public health training, can easily understand. Our analysis seeks to answer the following questions that would convince the COVID-19 "skeptics" and "truthers" on the severity of the pandemic as well as the effectiveness/necessity of public preventive measures.  
 
 * What do the excess deaths data of 2020 look like? Is excess deaths data of 2020 significantly different from recent years?  
@@ -38,15 +40,17 @@ We believe that the excess deaths data from Center of Disease Control, in compar
 
 <br>
 
-### **Data**
+### Data
 ***Excess Deaths Associated with COVID-19*** is from the [Centers for Disease Control and Prevention](https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst/). Excess deaths data is free public data published by Centers for Disease Control and Prevention. Estimates of excess deaths presented in this webpage were calculated using Farrington surveillance algorithms (1). For each jurisdiction, a model is used to generate a set of expected counts, and the upper bound of the 95% Confidence Intervals (95% CI) of these expected counts is used as a threshold to estimate excess deaths. Observed counts are compared to these upper bound estimates to determine whether a significant increase in deaths has occurred. 
 
 ***Provisional COVID-19 Death Counts by Week Ending Date and State*** was obtained from the [Centers for Disease Control and Prevention](https://data.cdc.gov/NCHS/Provisional-COVID-19-Death-Counts-by-Week-Ending-D/r8kw-7aab). Deaths involving coronavirus disease 2019 (COVID-19), pneumonia, and influenza reported to NCHS by week ending date and by state.
 
 ***COVID-19 Prevention Methods by States*** was obtained from the [National Academy of State Health Policy](https://www.nashp.org/governors-prioritize-health-for-all/). We import and link data on the lengths of each states stay-at-home-orders, mask mandate as well as travel restrictions based on information aggregated from by the National Academy of State Health Policy. 
 
+***State Population Totals: 2010 - 2019*** was obtained from the [United States Census Bureau](https://www.census.gov/data/datasets/time-series/demo/popest/2010s-state-total.html). We import and link data on the population and demographic information for each state to further our analysis on COVID impacts as well as prevention outcomes. 
+
 <br>
 
-### **Screencast**
+### Screencast
 
 The screencast below clearly shows the background, method, result and conclusion of our project.
