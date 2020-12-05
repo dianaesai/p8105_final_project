@@ -10,7 +10,7 @@ navbar:
       href: casulties.html
     - text: "Prevention Outcomes"
       href: preventions.html
-    - text: "Discussion"
+    - text: "Final Report"
       href: final_report.html
     - text: "Contact Us"
       menu:
