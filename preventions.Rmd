@@ -289,7 +289,7 @@ mod6_df
 
 ### Once implemented, were prevention measures effective in decreasing total excess deaths?
 
-```{r}
+```{r, collapse=TRUE}
 post_prevent = merged_data %>% 
   group_by(state) %>% 
   filter(end_week > as.Date("2020-6-1") & state !="United States" & state!="New York City") %>% 
