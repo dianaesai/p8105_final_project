@@ -133,7 +133,7 @@ states=right_join(states,state_pop) %>%
 
 states %>% 
   select(excess_death_r, covid_death_r, excess_not_covid_r) %>% 
-  rename(excess_death_rate=excess_death_r,covid_death_rate=covid_death_r,excess_deaths_not_from_covid_rate=excess_not_covid_r) %>% 
+  rename(excess_death_rate=excess_death_r,covid_death_rate=covid_death_r,excess_deaths_not_from_covid_rate=excess_not_covid_r) %>%
   skim_without_charts() %>% 
   select(skim_variable, numeric.p50, numeric.p25, numeric.p75) %>% 
   rename(Rate=skim_variable, Median=numeric.p50, p25=numeric.p25, p75th=numeric.p75) %>% 
