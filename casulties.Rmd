@@ -156,7 +156,6 @@ We then conduct a simple linear regression to calculate the correlation coeffici
 reg_1 = lm(excess_higher_estimate ~ covid_19_deaths, data=merged_data)
 reg_1 %>%
   broom::tidy() %>%
-  select(term,estimate,p.value)%>%
   kable() %>%
   kable_classic()
 ```
@@ -228,6 +227,7 @@ covid_v_non = merged_data %>%
   theme_tufte()
 
 ggplotly(covid_v_non)
+
 ```
 
 **Answer:** The graph above also shows a clear positive linear relationship with a relatively large $R^2$ value. Therefore, we can conclude that COVID-19 death counts that CNN brodcasts daily likely underestimates the true damage of the pandemic as many deaths reported as non-COVID related can be attributed to COVID-19 as well.
