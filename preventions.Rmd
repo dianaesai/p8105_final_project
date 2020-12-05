@@ -87,7 +87,7 @@ states_df=right_join(states,preventions_df)
 prevent_map1 = plot_usmap(data = states_df, values = "length", color = "black") +
   scale_fill_viridis(direction = -1) + 
   theme(legend.position = "right")+
-  labs(fill = "Excess deaths per 100 expected deaths",
+  labs(fill = "Duration of Lockdown",
        title = "Length of States' Stay-at-Home Orders")
 
 
