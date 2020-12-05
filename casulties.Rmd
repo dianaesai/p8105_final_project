@@ -28,7 +28,7 @@ options(scipen=10)
 
 #### Are there actually more deaths reported in 2020 than past years?  
 
-To examine the issue, we use the *Excess Deaths Associated with COVID-19* from the [Centers for Disease Control and Prevention](https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst/). Luckily for us, the file is has already been cleaned and stored in csv format. We filtered for reported death data on all potential causes, then disregarded the most recently reported data from the past two weeks as they are incomplete reports. We then created a connected scatterplot displaying the monthly reported deaths from the past 4 years.
+To examine the issue, we used the *Excess Deaths Associated with COVID-19* from the [Centers for Disease Control and Prevention](https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst/). Luckily for us, the file has already been cleaned and stored in csv format. We filtered for reported death data on all potential causes, then disregarded the most recently reported data from the past two weeks as they are incomplete reports. We then created a connected scatterplot displaying the monthly reported deaths from the past 4 years.
 
 ```{r}
 excess_deaths <- read_csv("data/Excess_Deaths_Associated_with_COVID-19.csv") %>% 
