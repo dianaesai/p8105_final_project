@@ -6,6 +6,7 @@ output:
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message=FALSE,fig.width=8, fig.height=6, out.width="100%")
+
 library(tidyverse)
 library(plotly)
 library(readxl)
@@ -21,13 +22,8 @@ library(usmap)
 library(janitor)
 library(miceadds)
 library(stringr)
-
-knitr::opts_chunk$set(
-  fig.width = 6,
-  fig.asp = .6,
-  out.width = "90%"
-)
-
+library(viridis)
+library(ggthemes)
 
 
 options(scipen=10)
@@ -35,6 +31,8 @@ options(scipen=10)
 ```
 
 ### How have states responded to the pandemic?
+
+To evaluate the relationship between prevention measures and excess deaths, we first pulled data from the [National Academy of State Health Policy](https://www.nashp.org/governors-prioritize-health-for-all/) with specifications of each states' steps in mitigating the spread of COVID-19. We then mapped each state's lockdown duration, mask mandate, and travel restrictions.  
 
 ```{r}
 excess_deaths <- read_csv("data/Excess_Deaths_Associated_with_COVID-19.csv") %>% 
@@ -86,10 +84,12 @@ preventions_df = read_csv("data/prevention_measures.csv") %>%
 
 states_df=right_join(states,preventions_df)
 
-prevent_map1 = plot_usmap(data = states_df, values = "length", color = "black") + 
-  scale_fill_continuous(name = "Length of lockdown", label = scales::comma) + 
+prevent_map1 = plot_usmap(data = states_df, values = "length", color = "black") +
+  scale_fill_viridis(direction = -1) + 
   theme(legend.position = "right")+
-  labs(title = "Length of States' Stay-at-Home Orders")
+  labs(fill = "Excess deaths per 100 expected deaths",
+       title = "Length of States' Stay-at-Home Orders")
+
 
 ggplotly(prevent_map1)
 
@@ -120,10 +120,12 @@ map3_title = list(
   showarrow = FALSE)
 
 prevent_map2 = plot_usmap(data = states_df, values = "mask_mandate", color = "black") + 
-  theme(legend.position = "none")
+  theme(legend.position = "none")+
+  scale_colour_viridis_d(option = "inferno")
 
 prevent_map3 = plot_usmap(data = states_df, values = "travel_restrictions", color = "black")+
-  theme(legend.position = "right")
+  theme(legend.position = "right")+
+  scale_colour_viridis_d(option = "inferno")
 
 prevent_map2 = ggplotly(prevent_map2) %>% layout(annotations = map2_title)
 prevent_map3 = ggplotly(prevent_map3) %>% layout(annotations = map3_title)
@@ -132,10 +134,11 @@ subplot(style(prevent_map2, showlegend = F), prevent_map3)
 ```
 
 
+**Answer:** The response to the COVID-19 pandemic has differed from state to state. Generally, the Great Plains states took the fewest prevention measures with never issuing a shelter-in-place order, mask mandate, or travel restrictions. Overall, with no clear federal direction and guidance on prevention measures, the United States experienced a fragemented response in the first six months of the pandemic. 
 
+### Do "lockdowns kill"? What is the association between lockdown durations and excess deaths not related to COVID-19.
 
-### Do "lockdowns kill"? Assessing the association between lockdown durations and excess deaths not related to COVID-19.
-
+To investigate whether states that required residents to stay at home experienced a higher burden of other deaths outside of COVID-19, we combined data from [National Academy of State Health Policy](https://www.nashp.org/governors-prioritize-health-for-all/) with *Excess Deaths Associated with COVID-19* from the [Centers for Disease Control and Prevention](https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst/). After filtering out excess deaths attributed to COVID-19, we fitted a linear regression model with the length of stay-at-home order as a continuous exposure and number of excess deaths not attributed to COVID-19 per 100,000 as the outcome.   
 
 ```{r, collapse=TRUE}
 states %>% 
@@ -169,11 +172,13 @@ mod3_df =
 mod3_df
 ```
 
-No. We can see from this model that there is no statistically significant association between length of lockdowns and excess deaths not related to COVID-19. These results undermine the assertion that "lockdowns kill people". While there may be above average deaths in the U.S. that are not due to COVID-19, it is evident that lockdowns are not a major driver of them. 
+**Answer:** No. We can see from this model that there is no statistically significant association between length of lockdowns and excess deaths not related to COVID-19. These results undermine the assertion that "lockdowns kill people". While there may be above average deaths in the U.S. that are not due to COVID-19, it is evident that lockdowns are not a major driver of them. 
 
 <br><br>
 
 ### Well, how about masks and travel restrictions? Did states that decreased civil liberties see a significant increase in excess deaths not related to COVID-19?  
+
+To address a far-fetched assertion that imposing on the civil liberties of state citizens may lead to an above average number of deaths not related to COVID-19, we used the same combined data with excess deaths and prevention measures. We then fitted two linear models with binary exposure indicating the presence of travel restrictions or a mask mandate and made number of excess deaths not attributed to COVID-19 per 100,000 as the outcome. 
 
 ```{r, collapse=TRUE}
 
@@ -225,11 +230,13 @@ mod5_df =
 mod5_df
 ```
 
-Neither mask mandates nor travel restrictions had significant relationships with the number of above average deaths not related to COVID-19.  
+**Answer:** Neither mask mandates nor travel restrictions had significant relationships with the number of above average deaths not related to COVID-19. 
 
 <br><br>
 
 ### Is there an association between a states' lockdown duration and non-COVID-19 deaths at home?
+
+Next, we wanted to see if states with longer lockdown durations had more non-COVID-19 deaths occur at home. To do this, we pulled data from the *Provisional COVID-19 Death Counts by Place of Death and State* from the [Centers for Disease Control and Prevention](https://data.cdc.gov/NCHS/Provisional-COVID-19-Death-Counts-by-Place-of-Deat/uggs-hy5q) and combined it with the *Excess Deaths Associated with COVID-19* and prevention measures datasets from earlier. After filtering for deaths not attributed to COVID-19 which occurred in the household, we plotted non-COVID deaths at home per 100,000 persons against the length of stay-at-home orders. We then fitted a linear model assessing the association of length of lockdown and non-COVID-19 deaths at home per 100,000 residents.
 
 ```{r, collapse=TRUE}
 home_deaths = read_csv("data/place_of_death.csv") %>% 
@@ -276,4 +283,4 @@ mod6_df =
 mod6_df
 ```
 
-No. We do not see any significant relationship between how long state residents were asked to shelter-in-place and the number of non-COVID-19 deahts at home per 100,000 persons.  
+**Answer:** No. We do not see any significant relationship between how long state residents were asked to shelter-in-place and the number of non-COVID-19 deaths at home per 100,000 persons. This evidence weakens claims that requesting citizens to stay at home to prevent the spread of COVID-19 results in excess deaths at home from other causes   

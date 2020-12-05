@@ -1,14 +1,67 @@
 ---
-title: "Dashboard"
+title: "Shiny Dashboard"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+runtime: shiny
 ---
 
-### Analysis
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(viridis)
+library(p8105.datasets)
+library(plotly)
+```
+
+Column {.sidebar}
+-----------------------------------------------------------------------
 
 ```{r}
 
 ```
 
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Above average deaths during the COVID-19 pandemic
+
+```{r}
+state_pop = read_csv("data/State_Populations.csv") %>% 
+  janitor::clean_names()
+
+excess_deaths_3 = excess_deaths %>%
+  filter(state != "United States" & state != "New York City" & end_week < as.Date("2020-3-1")) %>%
+  select(state,total_excess_higher_estimate_in_2020) %>%
+  group_by(state)%>%
+  summarise(
+    excess_estimate = mean(total_excess_higher_estimate_in_2020)
+  )
+
+
+us_map = inner_join(excess_deaths_3,state_pop) %>%
+  mutate(excess_death_per = excess_estimate/population*100000)
+
+map_graph = plot_usmap(data = us_map, values = "excess_death_per", color = "black") +   
+  scale_fill_continuous(
+    low = "white", high = "red", name = "Projected 2020 Excess Deaths Per 100,000", label = scales::comma) + 
+  theme(legend.position = "right")
+
+ ggplotly(map_graph)
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
