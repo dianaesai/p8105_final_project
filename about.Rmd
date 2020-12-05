@@ -55,7 +55,7 @@ We believe that the excess deaths data from Center of Disease Control, in compar
 
 ### Screencast
 
-The screencast below clearly shows the background, method, result and conclusion of our project.
+The screencast below presents an overview of the motivation of our project and the layout of our website. 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ljRSoNMDeso" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
