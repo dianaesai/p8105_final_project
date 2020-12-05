@@ -28,7 +28,8 @@ options(scipen=10)
 
 ### Are there actually more deaths reported in 2020 than past years?  
 
-To examine the issue, we use the data from 
+To examine the issue, we use the *Excess Deaths Associated with COVID-19* from the [Centers for Disease Control and Prevention](https://data.cdc.gov/NCHS/Excess-Deaths-Associated-with-COVID-19/xkkf-xrst/). Luckily for us, the file is has already been cleaned and stored in csv format. We filtered for reported death data on all potential causes, then disregarded the most recently reported data from the past two weeks as they are incomplete reports. We then created a connected scatterplot displaying the monthly reported deaths from the past 4 years.
+
 ```{r}
 excess_deaths <- read_csv("data/Excess_Deaths_Associated_with_COVID-19.csv") %>% 
   janitor::clean_names() %>% 
@@ -44,7 +45,6 @@ recorded_deaths = excess_deaths %>%
 
 recorded_deaths = recorded_deaths[-c(47),]
 
-
 recorded_deaths_graph = recorded_deaths %>%
   ggplot(aes(x=month,y=observed_number,color=year)) + 
   geom_point() + geom_line(aes(group=year)) + 
@@ -58,7 +58,8 @@ recorded_deaths_graph = recorded_deaths %>%
 
 ggplotly(recorded_deaths_graph)
 ```
-
+  
+We also filtered for the first 10 months of the year, where there is complete reporting from 2020, and calculated the total reported deaths for the past 4 years respectively. The graph is displayed in the form of bar-plot that details the yearly total reported deaths (first 10 months) for the past 4 years.
 ```{r}
 recorded_deaths_bar = recorded_deaths %>%
   filter(month != 11 & month != 12) %>%
@@ -80,10 +81,13 @@ recorded_deaths_bar = recorded_deaths %>%
 
 ggplotly(recorded_deaths_bar)
 ```
-Yes, the following graph shows unequivocally that deaths reported since March 2020 has exceeded the past three years by a substantial margin. In the month of May, the recorded deaths number of 2020 is almost 50% higher than the average from 2017 to 2019.  
 
+**Answer:** There are indeed a significant increase in reported deaths in 2020. The first graph shows that deaths reported since March 2020 has exceeded the past three years by a substantial margin. In the month of May, the recorded deaths number of 2020 is almost 50% higher than the average from 2017 to 2019. The second graph shows that cumulatively, the year 2020 has seen as substantial increase in total reported deaths than the previous 3 years from January to October.  
 
 ### Maybe reported deaths number was going to peak in 2020 due to demographic/environmental or other external variables anyways. Is the reported death spike not expected?
+
+To answer the question, we introduce the concept of excess death, which is defined as the difference between observed numbers of deaths and expected number of deaths. CDC calculates the expected number of deaths using demographic information, environmental factors as well as historical records. We calculate the excess death number by subtracting the upper bound threshold of expected death from the observed death count. Using this data, we produced a timeseries scatterplot that displays the excess death count from all causes from 2017 to 2020.
+
 ```{r}
 excess_deaths_2 = excess_deaths %>% 
   separate(col=end_week,into=c("year","month","day"),sep="-") %>%
@@ -115,9 +119,11 @@ excess_deaths_graph = excess_deaths_2 %>%
 ggplotly(excess_deaths_graph)
 ```
 
-No, the spike in reported deaeth in 2020 is not expected at all according to the CDC weekly deaths projections. Over the past four years, aside from the winter of 2017 when recorded deaths number briefly eclipsed the upperbound deaths projections, recorded deaths number has been consistently at a lower level than the upperbound deaths projections. In 2020, the excess deaths number shot way past the projection as well as historical averages.  
+**Answer:** No, the spike in reported death in 2020 is not expected at all according to the CDC weekly deaths projections. Over the past four years, aside from the winter of 2017 when recorded deaths number briefly eclipsed the upperbound deaths projections, recorded deaths number has been consistently at a lower level than the upperbound deaths projections. In 2020, the excess deaths number shot way past the projection as well as historical averages.  
 
 ### Okay, but how do I know this spike in reported deaths is directly correlated with COVID-19 mortalities?
+
+To visualize the correlation, we plot the [weekly reported Covid-19 death ](https://data.cdc.gov/NCHS/Provisional-COVID-19-Death-Counts-by-Week-Ending-D/r8kw-7aab) against total weekly reported excess deaths. 
 
 ```{r}
 covid_deaths <- read.csv("data/Provisional_COVID-19_Death_Counts_by_Week_Ending_Date_and_State.csv") %>% 
@@ -141,21 +147,25 @@ covid_v_excess = merged_data %>%
   geom_smooth(se=FALSE)+ 
   theme_tufte()
 
-
 ggplotly(covid_v_excess)
 ```
+
+We then conduct a simple linear regression to calculate the correlation coefficient between Covid-19 deaths and total excess deaths.
 
 ```{r}
 reg_1 = lm(excess_higher_estimate ~ covid_19_deaths, data=merged_data)
 reg_1 %>%
   broom::tidy() %>%
   select(term,estimate,p.value)%>%
-  kable(digits = 10)
+  kable() %>%
+  kable_classic()
 ```
 
-By mapping reported COVID-19 deaths against weekly excess deaths, there is a clear, significant linear relationship. In other words, the change of weekly excess deaths can almost be perfectly explained by change in COVID-19 deaths. Therefore, we can conclude that COVID-19 is indeed the culprit of the increased excess deaths of 2020.
+**Answer:** By mapping reported COVID-19 deaths against weekly excess deaths, we can see that there is a clear, significant positive correlation. After conducting the linear regression, we find out that the slope of this positive linear relationship is close to 1 with p-value practically at 0.In other words, for every 1 extra covid-19 death, the excess death number increases by 1.26. This relationship demonstrates that the increase of excess deaths from the past 10 months was highly correlated with the COVID-19 pandemic.
 
-### How much of the excess deaths increase can be attributed to Covid-19?
+### How much of the excess deaths increase can be attributed to COVID-19? Is the COVID-19 death reports underestimating or overestimating the true toll?
+
+We first create a pie graph to visualize the percentage of COVID-19 and non-COVID-19 deaths of the total reported excess deaths.
 
 ```{r}
 merged_data = merged_data %>%
@@ -182,7 +192,7 @@ pie_graph = pie_data %>%
 
 pie_graph
 ```
-
+Then we created a time-series connected scatterplot to see whether there is any temporality implied correlations.
 ```{r}
 deaths_comp_df = merged_data %>%
   select(end_week,non_covid_excess,covid_19_deaths,excess_higher_estimate) %>%
@@ -195,7 +205,7 @@ deaths_comp_graph = deaths_comp_df %>%
   ggplot(aes(x=end_week,y=value,color=death_type)) + 
   geom_point() + geom_line(aes(group=death_type)) + 
   labs(
-    title = "United States Monthly Recorded Deaths By Types",
+    title = "United States Weekly Excess Deaths By Types",
     x = "Month",
     y = "Recorded Deaths"
   )+
@@ -203,6 +213,8 @@ deaths_comp_graph = deaths_comp_df %>%
 
 ggplotly(deaths_comp_graph)
 ```
+
+**Answer:** From the first pie chart, we can see that COVID-19 deaths make up about 30% of total reported excess deaths. However, the non-COVID excess deaths seem to be highly correlated with COVID-19 death as we can see from the second graph. The increase in non-covid excess death largely corresponds to COVID-19 death spikes and vice versa. To further investigate the relationship between the two numbers, we again plot COVID-19 deaths against non-COVID excess deaths:
 
 ```{r}
 covid_v_non = merged_data %>% 
@@ -218,7 +230,12 @@ covid_v_non = merged_data %>%
 ggplotly(covid_v_non)
 ```
 
-### What states have relatively the largest increase in excess death this year?
+**Answer:** The graph above also shows a clear positive linear relationship with a relatively large $R^2$ value. Therefore, we can conclude that COVID-19 death counts that CNN brodcasts daily likely underestimates the true damage of the pandemic as many deaths reported as non-COVID related can be attributed to COVID-19 as well.
+
+### Now that we have established the severity of COVID-19 in the United States, to be specific, what states have been hurt the most by the pandemic?
+
+We investigate the question by calculating the magnitude of reported excess deaths relative to expected deaths reported by each state. The result would show that for every expected death in 2020, how many excess deaths there are in each state. We calculate the value using excess death counts divided by average expected death count than map those numbers to the American map by state.
+ 
 ```{r}
 extra_deaths_state = excess_deaths %>%
   filter(end_week > as.Date("2020-01-01")) %>%
@@ -242,8 +259,11 @@ map_graph_1 = plot_usmap(data = extra_deaths_state, values = "deaths_diff_percen
 
 ggplotly(map_graph_1)
 ```
-  
-### What States will have the highest excess deaths per 100,000 people by the end of 2020?
+**Answer:** From the map above, we can see that New Jersey is the state that has suffered the heaviest loss during the pandemic so far. For every 100 expected deaths, New Jersey reports almost 28 excess deaths. Other states such as New York, Louisiana, Texas and Arizona also have a relatively high excess death increase. On the other hand, Maine, Hawaii, Washington and Alaska are states that have not seen a drmatic increase in excess deaths, with the increase being in low single digit.
+
+### What states have suffered the most from COVID-19 on a per capita basis?
+
+To answer the question, we use the CDC estimates for total excess death for the entire year of 2020 and the state population data from the census bureau. 
 ```{r}
 state_pop = read_csv("data/State_Populations.csv") %>% 
   janitor::clean_names()
@@ -269,3 +289,5 @@ map_graph = plot_usmap(data = us_map, values = "excess_death_per", color = "blac
  ggplotly(map_graph)
 
 ```
+
+**Answer:** From the map, it shows that on a per capita basis, New Jersey is still one of the worst faring states during the entire pandemic. However, states like North Dakota is shown to have a high rate of excess death at 153 per 100,000 people. The pacific states (California, Oregon, Washington, Alaska and Hawaii) collectively have a lower excess death rate than rest of the United States.
