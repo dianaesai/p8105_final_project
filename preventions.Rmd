@@ -248,7 +248,9 @@ home_deaths = read_csv("data/place_of_death.csv") %>%
   mutate(non_covid_home_deaths = total_deaths-covid19_deaths) %>% 
   select(state, non_covid_home_deaths)
 
-states_final = right_join(states, home_deaths) %>% 
+states_final = 
+  right_join(states, preventions_df) %>%
+  right_join(home_deaths) %>% 
   mutate(non_covid_home_deaths_r = non_covid_home_deaths/population*100000)
 
 
@@ -284,3 +286,47 @@ mod6_df
 ```
 
 **Answer:** No. We do not see any significant relationship between how long state residents were asked to shelter-in-place and the number of non-COVID-19 deaths at home per 100,000 persons. This evidence weakens claims that requesting citizens to stay at home to prevent the spread of COVID-19 results in excess deaths at home from other causes   
+
+### Once implemented, were prevention measures effective in decreasing total excess deaths?
+
+```{r}
+post_prevent = merged_data %>% 
+  group_by(state) %>% 
+  filter(end_week > as.Date("2020-6-1") & state !="United States" & state!="New York City") %>% 
+  filter(!is.na(covid_19_deaths)) %>% 
+  filter(!is.na(excess_higher_estimate)) %>% 
+  summarise(
+    excess_deaths=sum(excess_higher_estimate),
+    covid_deaths=sum(covid_19_deaths),
+    excess_not_covid=sum(excess_higher_estimate)-sum(covid_19_deaths)) 
+
+post_prevent_final = 
+  right_join(post_prevent, preventions_df) %>% 
+  right_join(stay_at_home_orders) %>% 
+  right_join(state_pop) %>% 
+  mutate(excess_death_r=excess_deaths/population*100000) %>% 
+  mutate(covid_death_r=covid_deaths/population*100000) %>% 
+  mutate(excess_not_covid_r=excess_not_covid/population*100000)
+
+mod7 = lm.cluster(excess_death_r ~ length + stay_at_home + mask_mandate + travel_restrictions, data = post_prevent_final, cluster="state")
+
+mod7_sum = 
+  summary(mod7) %>% 
+  as_tibble()
+
+mod7_CI = 
+  confint(mod7) %>% 
+  as_tibble()
+
+mod7_df=
+  bind_cols(mod7_sum, mod7_CI) %>% 
+  mutate(
+    Variables = c("Intercept", "Length of lockdown", "Lockdown order", "Mask mandate", "Travel restrictions")
+  ) %>% 
+  relocate(Variables) %>% 
+  kbl(caption="Linear model output assessing association of prevention measures and excess deaths per 100,000 residents post first peak", digits = 4) %>%
+  kable_classic()
+
+mod7_df
+```
+
