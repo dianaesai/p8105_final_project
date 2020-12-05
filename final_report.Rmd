@@ -50,3 +50,14 @@ The project seeks to answer the following questions that would convince the COVI
 
 ***State Population Totals: 2010 - 2019*** was obtained from the [United States Census Bureau](https://www.census.gov/data/datasets/time-series/demo/popest/2010s-state-total.html). We import and link data on the population and demographic information for each state to further our analysis on COVID impacts as well as prevention outcomes. The site provided csv files for download.
 
+<br>
+
+### Exploratory Analyses
+
+**COVID-19 Impacts**
+
+To accurately examine the impact of the coronavirus pandemic, our analysis follows a step-by-step progression that began with analyzing the total reported deaths from 2017 to 2020 up till October, the last month where we have complete statistics for. The total reported deaths of 2020 stands at 2,730,419, which is 15% higher than the closest year 2019's reported deaths of 2,342,978. In terms of monthly reported deaths, the year 2020 has seen multiple months with reported deaths over 300,000 - a number that no previous records have reached. In conclusion, we can say that there is a significant increase in total deaths occurring in the year of 2020.
+
+Secondly, we investigate the nature of the increased reported deaths - whether the deaths are naturally is a product environmental factor and population growth or some shock event that drastically drives up the mortaity rate. By calculating the excess death counts (or lackthereof) from 2017 - 2020, we see that until March 2020, the observed death numbers have been consistently below the expected deaths upperbound threshold (95% CI) with afew exceptions. The past 8 months have seen a radical departure from norm for the excess deaths number, suggesting that there was one unexpected event that triggered the rise in mortatlity reporting.
+
+
