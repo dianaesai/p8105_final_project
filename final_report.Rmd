@@ -8,6 +8,10 @@ output:
 
 <br>
 
+<img src="images/covid_19_memes.jpg" style="width:100%">
+
+<br>
+
 ### Motivation
 
 Since the beginning of COVID-19 pandemic, a range of conspiracy theories and pseudo-intellectual arguments have spun up around the globe about the scope and severity of the pandemic. The [President of The United States](https://apnews.com/article/virus-outbreak-donald-trump-ap-fact-check-anthony-fauci-flu-fe474f0c15f76adf324791a2cfc1e2bb) has repeatedly compared coronavirus to the flu, claiming that the lethality of the two diseases are comparable. While public health professionals can quickly dismiss these statements as nonsensical absurdities, they are actually not unusual opinions amongst the general public. As the daily COVID Death toll reaching new heights in the United States, 30% of Americans are still [not concerned](https://projects.fivethirtyeight.com/coronavirus-polls/) with the virus according to the newest tracking poll from Fivethirtyeight. One major talking point of many COVID skeptics is that they believe the COVID-19's death toll is inflated by hospital reporting other diseases under the name of COVID-19 - therefore, COVID-19 has not increased total mortality rate dramatically.
