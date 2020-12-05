@@ -29,15 +29,6 @@ knitr::opts_chunk$set(
 )
 
 
-theme_set(theme_minimal()+theme(legend.position = "bottom"))
-
-options(
-  ggplot2.continuous.colur = "viridis",
-  ggplot2.continuous.fill = "viridis"
-)
-
-scale_colour_discrete = scale_colour_viridis_d
-scale_fill_discrete = scale_fill_viridis_d
 
 options(scipen=10)
 
@@ -107,7 +98,7 @@ ggplotly(prevent_map1)
 
 ```{r}
 map2_title = list(
-  text = "State has mask mandates",
+  text = "State has mask mandate",
   xref = "paper",
   yref = "paper",
   yanchor = "bottom",
@@ -140,7 +131,7 @@ prevent_map3 = ggplotly(prevent_map3) %>% layout(annotations = map3_title)
 subplot(style(prevent_map2, showlegend = F), prevent_map3)
 ```
 
-I know these are ugly... still working on them and looking for a better way to condense to one graphic
+
 
 
 ### Do "lockdowns kill"? Assessing the association between lockdown durations and excess deaths not related to COVID-19.
@@ -178,13 +169,15 @@ mod3_df =
 mod3_df
 ```
 
-We can see from this model that there is no statistically significant association between length of lockdowns and excess deaths not related to COVID-19. These results undermine the notion that "lockdowns kill people" that many persons assert. 
+No. We can see from this model that there is no statistically significant association between length of lockdowns and excess deaths not related to COVID-19. These results undermine the assertion that "lockdowns kill people". While there may be above average deaths in the U.S. that are not due to COVID-19, it is evident that lockdowns are not a major driver of them. 
+
+<br><br>
 
 ### Well, how about masks and travel restrictions? Did states that decreased civil liberties see a significant increase in excess deaths not related to COVID-19?  
 
 ```{r, collapse=TRUE}
 
-mod4 = lm.cluster(excess_not_covid_r ~ mask_mandate + travel_restrictions, data = states_df, cluster="state")
+mod4 = lm.cluster(excess_not_covid_r ~ travel_restrictions, data = states_df, cluster="state")
 
 
 mod4_sum = 
@@ -198,22 +191,18 @@ mod4_CI =
 mod4_df = 
   bind_cols(mod4_sum, mod4_CI) %>% 
   mutate(
-    Variables = c("Intercept", "Mask mandate", "Travel restrictions")
+    Variables = c("Intercept", "Travel restrictions")
   ) %>% 
   relocate(Variables) %>% 
-  kbl(caption="Linear model output assessing association of prevention methods and excess deaths", digits = 2) %>%
+  kbl(caption="Linear model output assessing association of travel restrictions and excess non-COVID-19 deaths per 100,000", digits = 2) %>%
   kable_classic()
 
 mod4_df
 ```
 
-So masks, kill persons? Not so fast. 
-
-### What's the relationship between mask mandates and COVID-19 deaths?
-
 
 ```{r, collapse = TRUE}
-mod5 = lm.cluster(covid_death_r ~ mask_mandate, data = states_df, cluster="state")
+mod5 = lm.cluster(excess_not_covid_r ~ mask_mandate, data = states_df, cluster="state")
 
 
 mod5_sum = 
@@ -230,16 +219,19 @@ mod5_df =
     Variables = c("Intercept", "Mask mandate")
   ) %>% 
   relocate(Variables) %>% 
-  kbl(caption="Linear model output assessing association of mask mandates and COVID-19 deaths", digits = 2) %>%
+  kbl(caption="Linear model output assessing association of mask mandates and excess non-COVID-19 deaths per 100,000", digits = 2) %>%
   kable_classic()
 
 mod5_df
 ```
 
+Neither mask mandates nor travel restrictions had significant relationships with the number of above average deaths not related to COVID-19.  
+
+<br><br>
 
 ### Is there an association between a states' lockdown duration and non-COVID-19 deaths at home?
 
-```{r}
+```{r, collapse=TRUE}
 home_deaths = read_csv("data/place_of_death.csv") %>% 
   clean_names() %>% 
   filter(place_of_death == "Decedent's Home") %>% 
@@ -247,12 +239,10 @@ home_deaths = read_csv("data/place_of_death.csv") %>%
   filter(state != "New York City") %>% 
   filter(state != "Puerto Rico") %>% 
   mutate(non_covid_home_deaths = total_deaths-covid19_deaths) %>% 
-  select(state, non_covid_home_deaths) %>% 
-  view
+  select(state, non_covid_home_deaths)
 
 states_final = right_join(states, home_deaths) %>% 
-  mutate(non_covid_home_deaths_r = non_covid_home_deaths/100000) %>% 
-  view
+  mutate(non_covid_home_deaths_r = non_covid_home_deaths/population*100000)
 
 
 
@@ -262,7 +252,28 @@ states_final %>%
   geom_point(alpha=0.5)+
   geom_smooth(, weight="population")+
  theme(legend.position = "none") +
-  scale_y_continuous(limits=c(0, 1))
+  scale_y_continuous(limits=c(150, 450))
 
+mod6 = lm.cluster(non_covid_home_deaths_r ~ length, data = states_final, cluster="state")
+
+mod6_sum = 
+  summary(mod6) %>% 
+  as_tibble()
+
+mod6_CI = 
+  confint(mod6) %>% 
+  as_tibble()
+
+mod6_df = 
+  bind_cols(mod6_sum, mod6_CI) %>% 
+  mutate(
+    Variables = c("Intercept", "Length of lockdown")
+  ) %>% 
+  relocate(Variables) %>% 
+  kbl(caption="Linear model output assessing association of length of lockdown and non-COVID-19 deaths at home per 100,000 residents", digits = 4) %>%
+  kable_classic()
+
+mod6_df
 ```
 
+No. We do not see any significant relationship between how long state residents were asked to shelter-in-place and the number of non-COVID-19 deahts at home per 100,000 persons.  
