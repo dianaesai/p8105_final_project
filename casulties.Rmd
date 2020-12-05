@@ -18,8 +18,10 @@ library(stats)
 library(skimr)
 library(kableExtra)
 library(usmap)
+library(viridis)
+library(ggthemes)
 
-options(scipen=10)
+options(scipen=10)  
 
 ```
 <br>  
@@ -48,11 +50,34 @@ recorded_deaths_graph = recorded_deaths %>%
     title = "United States Total Recorded Deaths By Months",
     x = "Month",
     y = "Recorded Deaths"
-  ) 
+  ) + 
+  scale_color_viridis(discrete = TRUE, option = "C") +
+  theme_tufte()
 
 ggplotly(recorded_deaths_graph)
 ```
-  
+
+```{r}
+recorded_deaths_bar = recorded_deaths %>%
+  filter(month != 11 & month != 12) %>%
+  select(year,month,observed_number) %>%
+  group_by(year)%>%
+  summarise(
+    total_death = sum(observed_number)
+  ) %>%
+  ggplot(aes(x=year,y=total_death,fill=year)) + 
+  geom_bar(stat="identity") +
+  labs(
+    title = "United States Total Reported Deaths of First 10 Months",
+    x = "Year",
+    y = "Recorded Deaths"
+  ) +
+  theme_tufte() +
+  scale_fill_viridis(discrete = TRUE, option = "C") 
+
+
+ggplotly(recorded_deaths_bar)
+```
 Yes, the following graph shows unequivocally that deaths reported since March 2020 has exceeded the past three years by a substantial margin. In the month of May, the recorded deaths number of 2020 is almost 50% higher than the average from 2017 to 2019.  
 
 
@@ -80,11 +105,13 @@ excess_deaths_graph = excess_deaths_2 %>%
     y = "Recorded Deaths - Upper Bound Projected Deaths "
   ) +
   scale_x_date(date_breaks = "months" , date_labels = "%b-%y") +
-  theme(axis.text.x = element_text(angle = 90))
+  theme(axis.text.x = element_text(angle = 90)) +
+  scale_color_viridis(discrete = TRUE, option = "C") +
+  theme_tufte()
 
 ggplotly(excess_deaths_graph)
 ```
-  
+
 No, the spike in reported deaeth in 2020 is not expected at all according to the CDC weekly deaths projections. Over the past four years, aside from the winter of 2017 when recorded deaths number briefly eclipsed the upperbound deaths projections, recorded deaths number has been consistently at a lower level than the upperbound deaths projections. In 2020, the excess deaths number shot way past the projection as well as historical averages.  
 
 ### Okay, but how do I know this spike in reported deaths is directly correlated with COVID-19 mortalities?
@@ -108,18 +135,74 @@ covid_v_excess = merged_data %>%
         title = "Weekly Reported COVID-19 Deaths vs. Weekly Excess Deaths"
        ) +
    geom_point(alpha=0.5)+
-  geom_smooth()+
-  theme(legend.position = "none")
+  geom_smooth()+ 
+  theme_tufte()
 
- ggplotly(covid_v_excess)
 
+ggplotly(covid_v_excess)
 ```
-  
+
+```{r}
+reg_1 = lm(excess_higher_estimate ~ covid_19_deaths, data=merged_data)
+reg_1 %>%
+  broom::tidy() %>%
+  select(term,estimate,p.value)%>%
+  kable(digits = 10)
+```
+
 By mapping reported COVID-19 deaths against weekly excess deaths, there is a clear, significant linear relationship. In other words, the change of weekly excess deaths can almost be perfectly explained by change in COVID-19 deaths. Therefore, we can conclude that COVID-19 is indeed the culprit of the increased excess deaths of 2020.
+
+### How much of the excess deaths increase can be attributed to Covid-19?
+
+```{r}
+merged_data = merged_data %>%
+  mutate(non_covid_excess = excess_higher_estimate-covid_19_deaths)
+
+pie_data = merged_data %>%
+  select(non_covid_excess,covid_19_deaths) %>%
+  summarize_if(is.numeric, sum, na.rm=TRUE) %>%
+  pivot_longer(
+    non_covid_excess:covid_19_deaths,
+    names_to = "type",
+    values_to = "deaths"
+  )
+
+pie_graph = pie_data %>%
+  ggplot(aes(x="", y=deaths,fill=type)) +
+  geom_bar(stat="identity", width=1,color="white") +
+  coord_polar("y", start=0) + 
+  theme_void() +
+  scale_fill_manual(values=c("navy", "maroon")) +
+  labs(
+    title = "Composition of Total Excess Deaths"
+  )
+
+pie_graph
+```
+
+```{r}
+deaths_comp_df = merged_data %>%
+  select(end_week,non_covid_excess,covid_19_deaths,excess_higher_estimate) %>%
+  rename(excess_deaths = excess_higher_estimate) %>%
+  rename(non_covid_excess_deaths = non_covid_excess) %>%
+   reshape::melt(id.vars = c("end_week"), measure.vars = c("non_covid_excess_deaths","covid_19_deaths","excess_deaths"))
+
+deaths_comp_graph = deaths_comp_df %>%
+      rename(death_type = variable) %>%
+  ggplot(aes(x=end_week,y=value,color=death_type)) + 
+  geom_point() + geom_line(aes(group=death_type)) + 
+  labs(
+    title = "United States Monthly Recorded Deaths By Types",
+    x = "Month",
+    y = "Recorded Deaths"
+  )+
+  theme_tufte()
+
+ggplotly(deaths_comp_graph)
+```
 
 ### What States have the highest excess deaths per 100,000 people?
 ```{r}
-
 state_pop = read_csv("data/State_Populations.csv") %>% 
   janitor::clean_names()
 
@@ -135,10 +218,11 @@ excess_deaths_3 = excess_deaths %>%
 us_map = inner_join(excess_deaths_3,state_pop) %>%
   mutate(excess_death_per = excess_estimate/population*100000)
 
-map_graph = plot_usmap(data = us_map, values = "excess_death_per", color = "black") +   
-  scale_fill_continuous(
-    low = "white", high = "red", name = "Projected 2020 Excess Deaths Per 100,000", label = scales::comma) + 
-  theme(legend.position = "right")
+map_graph = plot_usmap(data = us_map, values = "excess_death_per", color = "black") + 
+    scale_fill_viridis(direction = -1) + 
+  theme(legend.position = "right") +
+  labs(fill = "Excess deaths per 100,000 people",
+       title = "Excess Deaths Rate By States")
 
  ggplotly(map_graph)
 
