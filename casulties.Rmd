@@ -26,7 +26,9 @@ options(scipen=10)
 ```
 <br>  
 
-### Are there actually more deaths reported in 2020 than past years?
+### Are there actually more deaths reported in 2020 than past years?  
+
+To examine the issue, we use the data from 
 ```{r}
 excess_deaths <- read_csv("data/Excess_Deaths_Associated_with_COVID-19.csv") %>% 
   janitor::clean_names() %>% 
@@ -105,9 +107,10 @@ excess_deaths_graph = excess_deaths_2 %>%
     y = "Recorded Deaths - Upper Bound Projected Deaths "
   ) +
   scale_x_date(date_breaks = "months" , date_labels = "%b-%y") +
-  theme(axis.text.x = element_text(angle = 90)) +
   scale_color_viridis(discrete = TRUE, option = "C") +
-  theme_tufte()
+  theme_tufte() +
+  theme(axis.text.x = element_text(angle = 90)) 
+
 
 ggplotly(excess_deaths_graph)
 ```
@@ -135,7 +138,7 @@ covid_v_excess = merged_data %>%
         title = "Weekly Reported COVID-19 Deaths vs. Weekly Excess Deaths"
        ) +
    geom_point(alpha=0.5)+
-  geom_smooth()+ 
+  geom_smooth(se=FALSE)+ 
   theme_tufte()
 
 
@@ -201,7 +204,46 @@ deaths_comp_graph = deaths_comp_df %>%
 ggplotly(deaths_comp_graph)
 ```
 
-### What States have the highest excess deaths per 100,000 people?
+```{r}
+covid_v_non = merged_data %>% 
+ ggplot(aes(x=covid_19_deaths,y=non_covid_excess))+
+   labs(x = "Weekly Reported COVID-19 deaths ", 
+        y = "Weekly Reported non-Covid Excess deaths",
+        title = "Weekly Reported COVID-19 Deaths vs. non-Covid Excess Deaths"
+       ) +
+   geom_point(alpha=0.5)+
+  geom_smooth(method = "lm")+ 
+  theme_tufte()
+
+ggplotly(covid_v_non)
+```
+
+### What states have relatively the largest increase in excess death this year?
+```{r}
+extra_deaths_state = excess_deaths %>%
+  filter(end_week > as.Date("2020-01-01")) %>%
+  select(end_week,state,observed_number,average_expected_count,year) %>%
+  mutate(deaths_diff = observed_number - average_expected_count,
+         deaths_diff_percent = (deaths_diff/average_expected_count * 100))
+
+extra_deaths_state = extra_deaths_state %>%
+  select(state,deaths_diff_percent) %>%
+  drop_na(deaths_diff_percent) %>%
+  group_by(state)%>%
+  summarise_each(funs(mean)) %>%
+  mutate(deaths_diff_percent = round(deaths_diff_percent,digits=2)) %>%
+  filter(state != "New York City" & state != "District of Columbia" & state != "United States")
+
+map_graph_1 = plot_usmap(data = extra_deaths_state, values = "deaths_diff_percent") + 
+    scale_fill_viridis(direction = -1) + 
+  theme(legend.position = "right") +
+  labs(fill = "Excess deaths per 100 expected deaths",
+       title = "Excess Deaths vs. Expected Deaths By States")
+
+ggplotly(map_graph_1)
+```
+  
+### What States will have the highest excess deaths per 100,000 people by the end of 2020?
 ```{r}
 state_pop = read_csv("data/State_Populations.csv") %>% 
   janitor::clean_names()
